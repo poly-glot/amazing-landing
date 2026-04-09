@@ -49,7 +49,7 @@ func TestRequireAdmin_CallsHandlerWithSession(t *testing.T) {
 		handlerCalled = true
 		admin := AdminFromContext(r.Context())
 		if admin == nil {
-			t.Error("expected admin in context")
+			t.Fatal("expected admin in context")
 		}
 		if admin.AdminID != 1 {
 			t.Errorf("AdminID = %d, want 1", admin.AdminID)

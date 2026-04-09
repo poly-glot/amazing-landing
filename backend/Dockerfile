@@ -11,6 +11,7 @@ WORKDIR /app
 COPY --from=builder /app/server .
 COPY --from=builder /app/templates ./templates
 COPY --from=builder /app/seed ./seed
+COPY --from=builder /app/admin-assets ./admin-assets
 USER appuser
 EXPOSE 8080
 ENV ADMIN_ASSETS_DIR=/app/admin-assets

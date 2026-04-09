@@ -214,7 +214,7 @@ func TestProvider_Authenticate_LockedAccount(t *testing.T) {
 
 	// Exhaust attempts with wrong password
 	for i := 0; i < maxAttempts; i++ {
-		provider.Authenticate(ctx, "admin@test.com", "wrong-password")
+		_, _, _ = provider.Authenticate(ctx, "admin@test.com", "wrong-password")
 	}
 
 	// Now even the correct password should fail due to lock
@@ -254,7 +254,7 @@ func TestProvider_Authenticate_UpdatesLastLoginAt(t *testing.T) {
 	provider := NewProvider(repo, tracker)
 
 	before := time.Now()
-	provider.Authenticate(ctx, "admin@test.com", "password")
+	_, _, _ = provider.Authenticate(ctx, "admin@test.com", "password")
 
 	if savedUser == nil {
 		t.Fatal("expected Save to be called with updated user")

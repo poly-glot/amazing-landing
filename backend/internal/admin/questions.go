@@ -240,7 +240,7 @@ func (h *Handler) ExportQuestionsJSON(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Disposition", "attachment; filename=questions.json")
 	enc := json.NewEncoder(w)
 	enc.SetIndent("", "  ")
-	enc.Encode(config)
+	_ = enc.Encode(config)
 }
 
 // ImportQuestionsPage renders the JSON upload form.
@@ -273,7 +273,7 @@ func (h *Handler) ExampleQuestionsJSON(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Disposition", "attachment; filename=questions-example.json")
 	enc := json.NewEncoder(w)
 	enc.SetIndent("", "  ")
-	enc.Encode(example)
+	_ = enc.Encode(example)
 }
 
 func (h *Handler) ImportQuestionsJSON(w http.ResponseWriter, r *http.Request) {

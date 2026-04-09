@@ -102,9 +102,9 @@ func (h *Handler) ExportProducts(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Disposition", "attachment; filename=products.csv")
 
 	cw := csv.NewWriter(w)
-	cw.Write([]string{"brand", "name", "type", "image", "price", "url", "sort_order"})
+	_ = cw.Write([]string{"brand", "name", "type", "image", "price", "url", "sort_order"})
 	for _, p := range products {
-		cw.Write([]string{p.Brand, p.Name, p.Type, p.Image, p.Price, p.URL, strconv.Itoa(p.SortOrder)})
+		_ = cw.Write([]string{p.Brand, p.Name, p.Type, p.Image, p.Price, p.URL, strconv.Itoa(p.SortOrder)})
 	}
 	cw.Flush()
 }
@@ -190,9 +190,9 @@ func (h *Handler) ExampleProductsCSV(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Disposition", "attachment; filename=products-example.csv")
 
 	cw := csv.NewWriter(w)
-	cw.Write([]string{"brand", "name", "type", "image", "price", "url", "sort_order"})
-	cw.Write([]string{"Bloom", "Bloom Lotion", "Tone", "bloom_lotion.jpg", "£42", "https://azadi-cosmetics.com/bloom-lotion", "1"})
-	cw.Write([]string{"Silk", "Silk Cleansing Oil", "Cleanse", "silk_cleansing_oil.jpg", "£17", "https://azadi-cosmetics.com/silk-cleansing-oil", "2"})
+	_ = cw.Write([]string{"brand", "name", "type", "image", "price", "url", "sort_order"})
+	_ = cw.Write([]string{"Bloom", "Bloom Lotion", "Tone", "bloom_lotion.jpg", "£42", "https://azadi-cosmetics.com/bloom-lotion", "1"})
+	_ = cw.Write([]string{"Silk", "Silk Cleansing Oil", "Cleanse", "silk_cleansing_oil.jpg", "£17", "https://azadi-cosmetics.com/silk-cleansing-oil", "2"})
 	cw.Flush()
 }
 
@@ -205,7 +205,7 @@ func (h *Handler) ExportProductsJSON(w http.ResponseWriter, r *http.Request) {
 	}
 	w.Header().Set("Content-Type", "application/json")
 	w.Header().Set("Content-Disposition", "attachment; filename=products.json")
-	json.NewEncoder(w).Encode(products)
+	_ = json.NewEncoder(w).Encode(products)
 }
 
 func parseProductForm(r *http.Request) (*model.Product, error) {

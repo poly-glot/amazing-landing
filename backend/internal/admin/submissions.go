@@ -39,7 +39,7 @@ func (h *Handler) ExportSubmissionsCSV(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Disposition", "attachment; filename=submissions.csv")
 
 	cw := csv.NewWriter(w)
-	cw.Write([]string{
+	_ = cw.Write([]string{
 		"id", "firstname", "lastname", "email", "age", "skin",
 		"concern_1", "concern_2", "product", "store_id",
 		"address", "country", "promotion", "subscribe",
@@ -59,7 +59,7 @@ func (h *Handler) ExportSubmissionsCSV(w http.ResponseWriter, r *http.Request) {
 		if s.AcceptTerms {
 			terms = "true"
 		}
-		cw.Write([]string{
+		_ = cw.Write([]string{
 			fmt.Sprintf("%d", s.GetID()),
 			s.Firstname, s.Lastname, s.Email,
 			s.Age, s.Skin, s.Concern1, s.Concern2,
