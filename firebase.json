@@ -8,6 +8,7 @@
     ],
     "rewrites": [
       { "source": "/api/**", "run": { "serviceId": "amazing-landing-api", "region": "europe-west2" } },
+      { "source": "/admin", "run": { "serviceId": "amazing-landing-api", "region": "europe-west2" } },
       { "source": "/admin/**", "run": { "serviceId": "amazing-landing-api", "region": "europe-west2" } },
       { "source": "/login", "run": { "serviceId": "amazing-landing-api", "region": "europe-west2" } },
       { "source": "/logout", "run": { "serviceId": "amazing-landing-api", "region": "europe-west2" } },
