@@ -1,0 +1,11 @@
+indexes:
+
+- kind: Store
+  properties:
+  - name: isActive
+  - name: sortOrder
+
+- kind: Product
+  properties:
+  - name: brand
+  - name: sortOrder

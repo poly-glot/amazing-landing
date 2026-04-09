@@ -3,6 +3,9 @@
     "site": "amazing-landing",
     "public": "frontend/dist",
     "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+    "redirects": [
+      { "source": "/", "destination": "/2026/desktop/", "type": 302 }
+    ],
     "rewrites": [
       { "source": "/api/**", "run": { "serviceId": "amazing-landing-api", "region": "europe-west2" } },
       { "source": "/admin/**", "run": { "serviceId": "amazing-landing-api", "region": "europe-west2" } },
