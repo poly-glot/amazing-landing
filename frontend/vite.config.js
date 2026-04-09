@@ -1,6 +1,6 @@
 import { defineConfig } from 'vite';
 import { resolve } from 'path';
-import { readFileSync } from 'fs';
+import { readFileSync, cpSync } from 'fs';
 
 /**
  * Vite dev-server middleware that serves mock JSON for API routes.
@@ -41,6 +41,25 @@ function mockApi() {
 }
 
 /**
+ * Copies the legacy 2015 directory (static HTML/JS/CSS/assets) into the
+ * build output as-is, since those pages use plain <script> tags that Vite
+ * cannot bundle.
+ */
+function copyLegacy2015() {
+  return {
+    name: 'copy-legacy-2015',
+    apply: 'build',
+    closeBundle() {
+      cpSync(
+        resolve(__dirname, '2015'),
+        resolve(__dirname, 'dist/2015'),
+        { recursive: true },
+      );
+    },
+  };
+}
+
+/**
  * Minimal Vite plugin: resolves <!--@include: ./path --> directives in HTML.
  * Supports nested includes. Paths are relative to the file containing the directive.
  */
@@ -70,7 +89,7 @@ function htmlInclude() {
 export default defineConfig({
   root: '.',
   publicDir: false,
-  plugins: [htmlInclude(), mockApi()],
+  plugins: [htmlInclude(), mockApi(), copyLegacy2015()],
   server: {
     port: 3000,
     open: '/2026/desktop/index.html',
@@ -81,8 +100,6 @@ export default defineConfig({
       input: {
         '2026-desktop': resolve(__dirname, '2026/desktop/index.html'),
         '2026-mobile': resolve(__dirname, '2026/mobile/index.html'),
-        '2015-desktop': resolve(__dirname, '2015/desktop/index.html'),
-        '2015-mobile': resolve(__dirname, '2015/mobile/index.html'),
       },
     },
   },
