@@ -17,7 +17,6 @@ import { qs, qsa, destroyPopover }   from './shared/core/dom.js';
 import { animate }                   from './shared/core/animate.js';
 import { api }                       from './shared/core/api.js';
 import { customer, customerData }    from './shared/core/customer.js';
-import { captureTracking }           from './shared/core/tracking.js';
 
 import { Indicator }                 from './features/questions/Indicator.js';
 import { FormValidator }             from './features/results/FormValidator.js';
@@ -213,5 +212,3 @@ function showConfigError(what) {
   document.body.prepend(el);
 }
 
-// ── Legacy globals for tracking ─────────────────────────────────────
-window.captureTracking = captureTracking;

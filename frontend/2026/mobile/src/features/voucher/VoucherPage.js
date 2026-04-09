@@ -10,7 +10,6 @@ import { qs, qsa, param } from '../../shared/core/dom.js';
 import { recommendations, ieOverrides, findOutMoreLinks } from './recommendations.js';
 import { Carousel } from '../../shared/components/Carousel.js';
 import { ShareButtons } from './ShareButtons.js';
-import { captureTracking } from '../../shared/core/tracking.js';
 
 const NAV_TEXT = [
   '<svg class="prev-icon"><use xlink:href="#arrow-prev"></use></svg>',
@@ -61,8 +60,6 @@ export class VoucherPage {
       }
     }
 
-    window.MasterTmsUdo = { skincareRecommendationResult: product };
-    captureTracking();
   }
 
   animate() {}

@@ -813,12 +813,7 @@
 		var baseurl_api         = '/';
 		var main_promotion_slug = 'default';
 		var pdf_link            = '#';
-		var tracking_url        = '/desktop/default/';
 
-		var MasterTmsUdo        = {};
-
-		// Stubs for third-party SDKs not loaded in dev
-		window.ga = window.ga || function(){};
 		if (typeof Firebase === 'undefined') {
 			window.Firebase = function(){};
 			Firebase.prototype.authWithCustomToken = function(t,cb){ if(cb) cb(); };
@@ -837,8 +832,8 @@
 
 	<script type="text/javascript" src="assets/libs/owl.carousel.js"></script>
 	<script type="text/javascript" src="assets/libs/modal.js"></script>
-	<script type="text/javascript" src="assets/libs/popover.js"></script>
 	<script type="text/javascript" src="assets/libs/tooltip.js"></script>
+	<script type="text/javascript" src="assets/libs/popover.js"></script>
 
 	<script type="text/javascript" src="src-js/azadi-question-map.js"></script>
 	<script type="text/javascript" src="src-js/azadi-stores-map.js"></script>

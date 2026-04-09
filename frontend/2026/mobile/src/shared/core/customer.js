@@ -8,8 +8,6 @@
 
 import { questionsMap } from '../../features/questions/questions.js';
 import { qs } from './dom.js';
-import { captureTracking } from './tracking.js';
-
 export function createCustomer() {
   return {
     firstname: null, lastname: null, email: null,
@@ -23,13 +21,6 @@ export function createCustomer() {
     capture_selection(question, answer) {
       if (!answer) return;
       this[question] = answer;
-      const map = {
-        age: 'questionOneAnswer', skin: 'questionTwoAnswer',
-        concern: 'questionThreeAnswer', concern_1: 'questionThreeAnswer',
-        concern_2: 'questionThreeAnswer',
-      };
-      window.MasterTmsUdo = { [map[question]]: Array.isArray(answer) ? answer.join('|') : answer };
-      captureTracking();
     },
 
     suggested_product() {
@@ -40,8 +31,6 @@ export function createCustomer() {
 
     submit_form() {
       qs('#customer-information-form')?.dispatchEvent(new Event('submit'));
-      window.MasterTmsUdo = { questionnaireFormCompleted: '1' };
-      captureTracking();
     },
 
     set_address(obj) {

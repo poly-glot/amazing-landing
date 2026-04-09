@@ -10,7 +10,6 @@ import { animate, runSequence } from '../core/animate.js';
 import { buildResultsReveal } from '../animations/sequences.js';
 import { Carousel } from '../components/Carousel.js';
 import { api } from '../core/api.js';
-import { captureTracking } from '../core/tracking.js';
 import { router } from '../core/router.js';
 
 export class ResultsPage {
@@ -221,11 +220,6 @@ export class ResultsPage {
   }
 
   #onGetVoucher() {
-    const store = this.#stores.get_by_id(this.#customer.store_id);
-    if (store) { window.MasterTmsUdo = { nearestStore: store.address }; captureTracking(); }
-
-    window.MasterTmsUdo = { questionnaireFormCompleted: '1' };
-    captureTracking();
     api.sendEmail(this.#customerData()).then((res) => {
       if (res && res.email_preview_url) {
         this.#customer._email_preview_url = res.email_preview_url;

@@ -232,18 +232,6 @@ $(document).ready(function () {
             showResults();
         } else if(step === 'show-voucher') {
 
-            MasterTmsUdo = {};
-            MasterTmsUdo['questionnaireFormCompleted'] = '1';
-            window.captureTracking();
-
-            var store = window.stores_map.get_by_id(window.azadi_customer.store_id);
-            if(store)
-            {
-                MasterTmsUdo = {};
-                MasterTmsUdo['nearestStore'] = store.address;
-                captureTracking();
-            }
-
             window.azadi_api.sendCustomerEmail().done(function(response) {
                 if (response && response.email_preview_url) {
                     window.azadi_customer._email_preview_url = response.email_preview_url;

@@ -67,17 +67,5 @@
   });
   window.XMLHttpRequest.prototype = _RealXHR.prototype;
 
-  // ── Suppress external dependencies ────────────────────────────────
-
-  window.Firebase = function () {};
-  window.Firebase.prototype.authWithCustomToken = function (t, cb) { if (cb) cb(); };
-  window.Firebase.prototype.child = function () { return this; };
-  window.Firebase.prototype.once  = function (e, cb) {
-    cb({ val: function () { return null; }, forEach: function () {} });
-  };
-
-  window.ga = window.ga || function () {};
-  window.MasterTmsUdo = window.MasterTmsUdo || {};
-
   console.log('[Mock API] Fetch interceptor installed — all API calls use local mock data');
 })();

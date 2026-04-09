@@ -713,12 +713,7 @@
 		var baseurl_api         = '/';
 		var main_promotion_slug = 'default';
 		var pdf_link            = '#';
-		var tracking_url        = '/mobile/default/';
 
-		var MasterTmsUdo        = {};
-
-		// Stubs for third-party SDKs not loaded in dev
-		window.ga = window.ga || function(){};
 		if (typeof Firebase === 'undefined') {
 			window.Firebase = function(){};
 			Firebase.prototype.authWithCustomToken = function(t,cb){ if(cb) cb(); };

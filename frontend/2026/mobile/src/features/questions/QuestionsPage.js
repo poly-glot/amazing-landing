@@ -194,15 +194,6 @@ export class QuestionsPage {
   // ── Voucher Transition ───────────────────────────────────────────
 
   #goToVoucher() {
-    window.MasterTmsUdo = { questionnaireFormCompleted: '1' };
-    if (typeof window.captureTracking === 'function') window.captureTracking();
-
-    const store = window.stores_map?.get_by_id(this.#customer.store_id);
-    if (store) {
-      window.MasterTmsUdo = { nearestStore: store.address };
-      if (typeof window.captureTracking === 'function') window.captureTracking();
-    }
-
     // Send customer email in background
     import('../../shared/core/api.js').then(({ api }) => {
       const data = Object.fromEntries(

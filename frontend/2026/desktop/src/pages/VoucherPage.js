@@ -11,7 +11,6 @@ import { recommendations, ieOverrides, findOutMoreLinks } from '../data/recommen
 import { buildVoucherReveal } from '../animations/sequences.js';
 import { Carousel } from '../components/Carousel.js';
 import { ShareButtons } from '../components/ShareButtons.js';
-import { captureTracking } from '../core/tracking.js';
 
 const NAV_TEXT = [
   '<svg class="prev-icon"><use xlink:href="#arrow-prev"></use></svg>',
@@ -65,8 +64,6 @@ export class VoucherPage {
       }
     }
 
-    window.MasterTmsUdo = { skincareRecommendationResult: product };
-    captureTracking();
   }
 
   animate() {

@@ -36,91 +36,6 @@
         loader.fadeOut('fast');
     }
 
-    function captureTracking() {
-
-        if(MasterTmsUdo) {
-
-            if(MasterTmsUdo.questionOneAnswer) {
-
-                ga('set', {
-                    page: tracking_url + 'question1',
-                    title: 'Just between us, what is your age group?'
-                });
-
-                ga('send', 'pageview');
-                ga('send', 'event', 'age_group', MasterTmsUdo.questionOneAnswer);
-
-            }else if(MasterTmsUdo.questionTwoAnswer) {
-
-                ga('set', {
-                    page: tracking_url + 'question2',
-                    title: 'How would you describe your skin?'
-                });
-
-                ga('send', 'pageview');
-                ga('send', 'event', 'skin',  MasterTmsUdo.questionTwoAnswer, 1);
-
-            }else if(MasterTmsUdo.questionThreeAnswer) {
-
-                ga('set', {
-                    page: tracking_url + 'question3',
-                    title: 'What are your 2 main skin concerns?'
-                });
-
-                ga('send', 'pageview');
-                ga('send', 'event', 'concern', MasterTmsUdo.questionThreeAnswer, 1);
-
-            }else if(MasterTmsUdo.nearestStore) {
-
-                ga('set', {
-                    page: tracking_url + 'store-locator',
-                    title: 'Store Locator'
-                });
-
-                var store_id    = 0;
-                var store       = window.stores_map.get_by_id(window.azadi_customer.store_id);
-                if(store)
-                {
-                    store_id = store.id;
-                }
-
-                ga('send', 'pageview');
-                ga('send', 'event', 'storelookup',  MasterTmsUdo.nearestStore, store_id);
-
-            }else if(MasterTmsUdo.questionnaireFormCompleted) {
-
-                ga('set', {
-                    page: tracking_url + 'completed',
-                    title: 'Questionnaire Form Completed'
-                });
-
-                ga('send', 'pageview');
-                ga('send', 'event', 'user',  window.azadi_customer.email);
-
-            }else if(MasterTmsUdo.skincareRecommendationResult) {
-
-                ga('set', {
-                    page: tracking_url + 'voucher',
-                    title: 'Get Your Voucher'
-                });
-
-                ga('send', 'pageview');
-                ga('send', 'event', 'recommendation',  MasterTmsUdo.skincareRecommendationResult);
-
-            }
-        }
-
-        try {
-            /*DO NOT ALTER *** Azadi*/
-            (function(e){var t="1926",n=document,r,i,s={http:"http://cdn.mplxtms.com/s/MasterTMS.min.js",https:"https://secure-cdn.mplxtms.com/s/MasterTMS.min.js"},o=s[/\w+/.exec(window.location.protocol)[0]];i=n.createElement("script"),i.type="text/javascript",i.async=!0,i.src=o+"#"+t,r=n.getElementsByTagName("script")[0],r.parentNode.insertBefore(i,r),i.readyState?i.onreadystatechange=function(){if(i.readyState==="loaded"||i.readyState==="complete")i.onreadystatechange=null}:i.onload=function(){try{e()}catch(t){}}})(function(){});
-        }
-        catch(err) {
-
-        }
-    }
-
-    window.captureTracking  = captureTracking;
-
     function toggleSubmitButton() {
 
         var customer = window.azadi_customer;
@@ -265,24 +180,6 @@
         }
 
         this[question] = answer;
-
-        //Tracking
-        var customer_to_tracking = {
-            'age'       : 'questionOneAnswer',
-            'skin'      : 'questionTwoAnswer',
-            'concern'   : 'questionThreeAnswer',
-            'concern_1' : 'questionThreeAnswer',
-            'concern_2' : 'questionThreeAnswer',
-            'concerns'  : 'questionThreeAnswer'
-        };
-
-        if(typeof answer === 'array') {
-            answer = answer.join('|');
-        }
-
-        MasterTmsUdo = {};
-        MasterTmsUdo[customer_to_tracking[question]] = answer;
-        captureTracking();
     };
 
     Azadi_Customer.prototype.suggested_product = function () {
@@ -292,10 +189,6 @@
 
     Azadi_Customer.prototype.submit_form = function () {
         customer_form.trigger('submit');
-
-        MasterTmsUdo = {};
-        MasterTmsUdo['questionnaireFormCompleted'] = '1';
-        captureTracking();
     };
 
     Azadi_Customer.prototype.update_store = function () {

@@ -490,18 +490,6 @@
         $('#get-your-voucher-btn').on('click.next-page', function(e){
             e.preventDefault();
 
-            var store = window.stores_map.get_by_id(window.azadi_customer.store_id);
-            if(store)
-            {
-                MasterTmsUdo = {};
-                MasterTmsUdo['nearestStore'] = store.address;
-                captureTracking();
-            }
-
-            MasterTmsUdo = {};
-            MasterTmsUdo['questionnaireFormCompleted'] = '1';
-            window.captureTracking();
-
             window.azadi_api.sendCustomerEmail().done(function(response) {
                 if (response && response.email_preview_url) {
                     window.azadi_customer._email_preview_url = response.email_preview_url;

@@ -277,9 +277,6 @@
             transition: 'slide'
         });
 
-        MasterTmsUdo = {};
-        MasterTmsUdo['skincareRecommendationResult'] = suggested_product;
-        window.captureTracking();
     }
 
     window.showVoucher = showVoucher;

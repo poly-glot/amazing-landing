@@ -274,9 +274,6 @@
             }
         }
 
-        MasterTmsUdo = {};
-        MasterTmsUdo['skincareRecommendationResult'] = suggested_product;
-        window.captureTracking();
     };
 
     Azadi_Voucher.prototype.animate = function () {

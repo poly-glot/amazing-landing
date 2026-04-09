@@ -23,7 +23,6 @@ import { BASE_URL }                  from './core/constants.js';
 import { animate }                   from './core/animate.js';
 import { api }                       from './core/api.js';
 import { customer, customerData }    from './core/customer.js';
-import { captureTracking }           from './core/tracking.js';
 
 import { Indicator }                 from './components/Indicator.js';
 import { Modal }                     from './components/Modal.js';
