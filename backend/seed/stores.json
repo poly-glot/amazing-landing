@@ -1,0 +1,82 @@
+[
+  {
+    "town": "Regent Street",
+    "address": "228-229 Regent Street, London W1B 3BR",
+    "lat": "51.5145",
+    "lng": "-0.1413",
+    "image": "/desktop/assets/images/store.jpg",
+    "mapLink": "https://maps.google.com/?q=228+Regent+Street+London",
+    "isActive": true,
+    "sortOrder": 1
+  },
+  {
+    "town": "Covent Garden",
+    "address": "Unit 22, Covent Garden Market, London WC2E 8RF",
+    "lat": "51.5120",
+    "lng": "-0.1227",
+    "image": "/desktop/assets/images/store.jpg",
+    "mapLink": "https://maps.google.com/?q=Covent+Garden+Market+London",
+    "isActive": true,
+    "sortOrder": 2
+  },
+  {
+    "town": "Kings Road",
+    "address": "67 Kings Road, Chelsea, London SW3 4NT",
+    "lat": "51.4918",
+    "lng": "-0.1621",
+    "image": "/desktop/assets/images/store.jpg",
+    "mapLink": "https://maps.google.com/?q=67+Kings+Road+Chelsea+London",
+    "isActive": true,
+    "sortOrder": 3
+  },
+  {
+    "town": "Bath",
+    "address": "6-7 Union Passage, Bath BA1 1RE",
+    "lat": "51.3825",
+    "lng": "-2.3590",
+    "image": "/desktop/assets/images/store.jpg",
+    "mapLink": "https://maps.google.com/?q=6+Union+Passage+Bath",
+    "isActive": true,
+    "sortOrder": 4
+  },
+  {
+    "town": "Birmingham",
+    "address": "50 Temple Row, Birmingham B2 5LS",
+    "lat": "52.4814",
+    "lng": "-1.8975",
+    "image": "/desktop/assets/images/store.jpg",
+    "mapLink": "https://maps.google.com/?q=50+Temple+Row+Birmingham",
+    "isActive": true,
+    "sortOrder": 5
+  },
+  {
+    "town": "Edinburgh",
+    "address": "92 George Street, Edinburgh EH2 3DH",
+    "lat": "55.9533",
+    "lng": "-3.1996",
+    "image": "/desktop/assets/images/store.jpg",
+    "mapLink": "https://maps.google.com/?q=92+George+Street+Edinburgh",
+    "isActive": true,
+    "sortOrder": 6
+  },
+  {
+    "town": "Manchester",
+    "address": "2 New Cathedral St, Manchester M1 1AD",
+    "lat": "53.4839",
+    "lng": "-2.2446",
+    "image": "/desktop/assets/images/store.jpg",
+    "mapLink": "https://maps.google.com/?q=2+New+Cathedral+St+Manchester",
+    "isActive": true,
+    "sortOrder": 7
+  },
+  {
+    "town": "Dublin",
+    "address": "15 Wicklow Street, Dublin 2, Ireland",
+    "lat": "53.3425",
+    "lng": "-6.2612",
+    "image": "/desktop/assets/images/store.jpg",
+    "mapLink": "https://maps.google.com/?q=15+Wicklow+Street+Dublin",
+    "isActive": true,
+    "sortOrder": 8
+  }
+]

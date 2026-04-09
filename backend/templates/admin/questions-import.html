@@ -1,0 +1,128 @@
+{{define "admin/questions-import.html"}}{{template "layout.html" .}}{{end}}
+{{define "content"}}
+
+<nav class="c-breadcrumb" aria-label="Breadcrumb">
+  <a class="c-breadcrumb__link" href="/admin">Home</a>
+  <img class="c-breadcrumb__sep c-icon" src="/assets/icons/chevron-right.svg" alt="" aria-hidden="true">
+  <a class="c-breadcrumb__link" href="/admin/questions">Questions</a>
+  <img class="c-breadcrumb__sep c-icon" src="/assets/icons/chevron-right.svg" alt="" aria-hidden="true">
+  <span class="c-breadcrumb__current">Import JSON</span>
+</nav>
+
+<div class="c-page-header">
+  <div>
+    <h1 class="c-page-title">Import Question Config</h1>
+    <p class="c-page-subtitle">Upload a JSON file to replace the entire quiz configuration. This overwrites the current config — export a backup first if needed.</p>
+  </div>
+</div>
+
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--sp-6);align-items:start">
+
+  <!-- Upload form -->
+  <div class="c-panel">
+    <div class="c-panel__header">
+      <h2 class="c-panel__title">Upload file</h2>
+    </div>
+    <div class="c-panel__body">
+      <form method="POST" action="/admin/questions/import" enctype="multipart/form-data" class="c-form" style="max-inline-size:none">
+        <input type="hidden" name="_csrf" value="{{.CSRFToken}}">
+        <div class="c-form__field">
+          <label for="json-file" class="c-form__label">JSON file</label>
+          <input type="file" id="json-file" name="file" accept=".json" required class="c-form__input" style="padding:var(--sp-2)">
+          <p class="c-form__hint">Accepted format: <code>.json</code> matching the schema shown opposite. The entire active config will be replaced on upload.</p>
+        </div>
+        <div class="c-form__actions">
+          <button type="submit" class="c-button c-button--primary">
+            <img class="c-icon c-icon--sm" src="/assets/icons/upload.svg" alt="" aria-hidden="true">
+            Import Config
+          </button>
+          <a href="/admin/questions" class="c-button c-button--secondary">Cancel</a>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Format reference -->
+  <div style="display:flex;flex-direction:column;gap:var(--sp-4)">
+
+    <div class="c-panel">
+      <div class="c-panel__header">
+        <h2 class="c-panel__title">JSON schema</h2>
+        <a href="/admin/questions/example.json" class="c-stat-card__link">Download example &rarr;</a>
+      </div>
+      <div class="c-panel__body" style="padding:0">
+        <table class="c-table">
+          <thead>
+            <tr>
+              <th>Key</th>
+              <th>Type</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>ageGroups</code></td>
+              <td class="t-secondary">string[]</td>
+              <td class="t-secondary">Ordered list of age group labels</td>
+            </tr>
+            <tr>
+              <td><code>skinTypes</code></td>
+              <td class="t-secondary">map&lt;age, string[]&gt;</td>
+              <td class="t-secondary">Skin type options per age group</td>
+            </tr>
+            <tr>
+              <td><code>concerns</code></td>
+              <td class="t-secondary">map&lt;age, string[]&gt;</td>
+              <td class="t-secondary">Concern options per age group</td>
+            </tr>
+            <tr>
+              <td><code>productMapping</code></td>
+              <td class="t-secondary">map&lt;age, map&lt;concern, brand&gt;&gt;</td>
+              <td class="t-secondary">Brand recommendation per concern per age group</td>
+            </tr>
+            <tr>
+              <td><code>priority</code></td>
+              <td class="t-secondary">map&lt;age, string[]&gt;</td>
+              <td class="t-secondary">Brand priority order for product selection</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="c-panel">
+      <div class="c-panel__header">
+        <h2 class="c-panel__title">Example structure</h2>
+      </div>
+      <div class="c-panel__body" style="padding:var(--sp-4)">
+        <div class="c-code" style="max-block-size:260px;font-size:0.7rem">{
+  "ageGroups": ["Under 25", "25-35"],
+  "skinTypes": {
+    "Under 25": ["Dry", "Normal", "Oily/Combination"],
+    "25-35":    ["Dry", "Normal", "Oily/Combination", "Mature"]
+  },
+  "concerns": {
+    "Under 25": ["Dark spots/Uneven skin tone", "Oil control"],
+    "25-35":    ["Fine lines and wrinkles", "Loss of firmness"]
+  },
+  "productMapping": {
+    "Under 25": {
+      "Dark spots/Uneven skin tone": "Glow",
+      "Oil control": "Glow"
+    },
+    "25-35": {
+      "Fine lines and wrinkles": "Rise",
+      "Loss of firmness": "Rise"
+    }
+  },
+  "priority": {
+    "Under 25": ["Glow", "Silk"],
+    "25-35":    ["Rise", "Glow"]
+  }
+}</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+{{end}}

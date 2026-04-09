@@ -1,0 +1,15 @@
+@layer components {
+  .c-pagination {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--sp-4);
+    margin-block-start: var(--sp-8);
+    padding-block-start: var(--sp-4);
+    border-block-start: 1px solid var(--clr-border);
+  }
+  .c-pagination__info {
+    font-size: var(--text-xs);
+    color: var(--clr-text-muted);
+  }
+}

@@ -1,0 +1,13 @@
+%%{init: {'theme': 'base', 'look': 'classic', 'flowchart': {'defaultRenderer': 'elk', 'curve': 'linear', 'padding': 20, 'nodeSpacing': 80, 'rankSpacing': 60}, 'elk': {'mergeEdges': false, 'nodePlacementStrategy': 'NETWORK_SIMPLEX'}, 'themeVariables': {'primaryColor': '#ffffff', 'primaryTextColor': '#000000', 'primaryBorderColor': '#000000', 'lineColor': '#000000', 'secondaryColor': '#f5f5f5', 'tertiaryColor': '#ffffff', 'fontFamily': 'Arial', 'fontSize': '14px'}, 'themeCSS': '.edgePath .path { stroke-width: 2px !important; } .flowchart-link { stroke-width: 2px !important; }'}}%%
+
+flowchart TB
+    Browser["Browser"] -->|"HTTPS"| FH["Firebase Hosting\nCDN · static assets + rewrites"]
+    FH -->|"proxy /api, /admin, /login"| CR["Go HTTP Server\nCloud Run · europe-west2"]
+    CR --> DS["Cloud Datastore\nFirestore Datastore Mode"]
+    CR --> Mail["Email Service\nTemplated HTML emails"]
+
+    style Browser fill:#fff,stroke:#000,stroke-width:2px,color:#000
+    style FH     fill:#f5f5f5,stroke:#000,stroke-width:2px,color:#000
+    style CR     fill:#fff,stroke:#000,stroke-width:3px,color:#000
+    style DS     fill:#f5f5f5,stroke:#000,stroke-width:2px,color:#000
+    style Mail   fill:#f5f5f5,stroke:#000,stroke-width:2px,color:#000

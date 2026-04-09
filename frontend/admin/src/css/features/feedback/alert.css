@@ -1,0 +1,19 @@
+@layer components {
+  .c-alert {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--sp-3);
+    padding: var(--sp-3) var(--sp-4);
+    border-radius: var(--radius-md);
+    border-inline-start: 4px solid currentColor;
+    margin-block-end: var(--sp-4);
+    font-size: var(--text-sm);
+  }
+  .c-alert--success { background: var(--clr-success-bg); color: var(--clr-success); }
+  .c-alert--error   { background: var(--clr-error-bg);   color: var(--clr-error);   }
+  .c-alert--warning { background: var(--clr-warning-bg); color: var(--clr-warning); }
+
+  .c-alert__icon {
+    inline-size: 16px; block-size: 16px; flex-shrink: 0; margin-block-start: 2px;
+  }
+}

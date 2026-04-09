@@ -1,0 +1,70 @@
+{{define "admin/product-form.html"}}{{template "layout.html" .}}{{end}}
+{{define "content"}}
+
+<nav class="c-breadcrumb" aria-label="Breadcrumb">
+  <a class="c-breadcrumb__link" href="/admin">Home</a>
+  <img class="c-breadcrumb__sep c-icon" src="/assets/icons/chevron-right.svg" alt="" aria-hidden="true">
+  <a class="c-breadcrumb__link" href="/admin/products">Products</a>
+  <img class="c-breadcrumb__sep c-icon" src="/assets/icons/chevron-right.svg" alt="" aria-hidden="true">
+  <span class="c-breadcrumb__current">{{if .Product.ID}}Edit Product{{else}}New Product{{end}}</span>
+</nav>
+
+<div class="c-page-header">
+  <h1 class="c-page-title">{{if .Product.ID}}Edit Product{{else}}New Product{{end}}</h1>
+</div>
+
+<div class="c-panel">
+  <div class="c-panel__body">
+    <form method="POST" action="{{if .Product.ID}}/admin/products/{{.Product.ID}}{{else}}/admin/products{{end}}" class="c-form">
+      <input type="hidden" name="_csrf" value="{{.CSRFToken}}">
+
+      <div class="c-form__field">
+        <label for="brand" class="c-form__label">Brand</label>
+        <select id="brand" name="brand" required class="c-form__select">
+          <option value="">Select a brand</option>
+          <option value="Bloom" {{if eq .Product.Brand "Bloom"}}selected{{end}}>Bloom</option>
+          <option value="Glow" {{if eq .Product.Brand "Glow"}}selected{{end}}>Glow</option>
+          <option value="Rise" {{if eq .Product.Brand "Rise"}}selected{{end}}>Rise</option>
+          <option value="Silk" {{if eq .Product.Brand "Silk"}}selected{{end}}>Silk</option>
+        </select>
+      </div>
+
+      <div class="c-form__field">
+        <label for="name" class="c-form__label">Name</label>
+        <input type="text" id="name" name="name" required value="{{.Product.Name}}" class="c-form__input" placeholder="Product name">
+      </div>
+
+      <div class="c-form__field">
+        <label for="type" class="c-form__label">Type</label>
+        <input type="text" id="type" name="type" required value="{{.Product.Type}}" class="c-form__input" placeholder="e.g. Cream, Serum, Oil">
+      </div>
+
+      <div class="c-form__field">
+        <label for="image" class="c-form__label">Image URL</label>
+        <input type="text" id="image" name="image" value="{{.Product.Image}}" class="c-form__input" placeholder="https://example.com/product.jpg">
+      </div>
+
+      <div class="c-form__row">
+        <div class="c-form__field">
+          <label for="price" class="c-form__label">Price</label>
+          <input type="text" id="price" name="price" required value="{{.Product.Price}}" class="c-form__input" placeholder="29.90">
+        </div>
+        <div class="c-form__field">
+          <label for="sort_order" class="c-form__label">Sort Order</label>
+          <input type="number" id="sort_order" name="sort_order" value="{{.Product.SortOrder}}" class="c-form__input" placeholder="0">
+        </div>
+      </div>
+
+      <div class="c-form__field">
+        <label for="url" class="c-form__label">URL</label>
+        <input type="url" id="url" name="url" value="{{.Product.URL}}" class="c-form__input" placeholder="https://azadi-cosmetics.com/...">
+      </div>
+
+      <div class="c-form__actions">
+        <button type="submit" class="c-button c-button--primary">{{if .Product.ID}}Update Product{{else}}Create Product{{end}}</button>
+        <a href="/admin/products" class="c-button c-button--secondary">Cancel</a>
+      </div>
+    </form>
+  </div>
+</div>
+{{end}}

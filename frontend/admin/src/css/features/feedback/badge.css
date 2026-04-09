@@ -1,0 +1,16 @@
+@layer components {
+  .c-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--sp-1);
+    padding: 2px var(--sp-2);
+    border-radius: var(--radius-full);
+    font-size: var(--text-xs);
+    font-weight: var(--fw-medium);
+    white-space: nowrap;
+  }
+  .c-badge--success { background: var(--clr-success-bg); color: var(--clr-success); }
+  .c-badge--error   { background: var(--clr-error-bg);   color: var(--clr-error);   }
+  .c-badge--neutral { background: var(--clr-gray-100);   color: var(--clr-gray-600); }
+  .c-badge--gold    { background: var(--clr-brand-gold-bg); color: var(--clr-brand-dark); }
+}

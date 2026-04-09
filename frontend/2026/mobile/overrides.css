@@ -1,0 +1,62 @@
+/* Mobile */
+
+/*CTA's*/
+
+.btn-content
+{
+font-size: 15px!important;
+font-weight: normal;
+}
+
+/* Store Item min height */
+
+.store-selector .store-item
+{
+
+}
+
+.voucher-item.how-to-get-product.light
+{
+    text-align: center;
+}
+
+.promotion-box
+{
+    font-size:20px;
+}
+
+.promotion-box h1
+{
+    font-size: 30px
+}
+
+.note.text-center
+{
+    font-size: 15px
+}
+
+.section-main:before
+{
+    background-image: none;
+}
+
+.section-main:after
+{
+    background:none;
+}
+
+.store-selector h4
+{
+font-weight:normal
+}
+
+h2.voucher-item.how-to-get-product.light
+{
+    font-size: 20px
+}
+
+
+#page-questions-voucher .voucher-item
+{
+    margin-bottom:0;
+}

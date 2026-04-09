@@ -1,0 +1,18 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ..:/workspace:cached
+      - ${HOME}/.claude:/home/vscode/.claude:cached
+      - ${HOME}/.cache/go-build:/home/vscode/.cache/go-build
+      - ${HOME}/go/pkg/mod:/home/vscode/go/pkg/mod
+      - ${HOME}/.npm:/home/vscode/.npm
+    command: sleep infinity
+    networks:
+      - azadi-network
+
+networks:
+  azadi-network:
+    driver: bridge

@@ -1,0 +1,87 @@
+@layer tokens {
+  :root {
+    /* Brand */
+    --clr-brand-dark:    #0c121d;
+    --clr-brand-gold:    #c8a96e;
+    --clr-brand-gold-bg: #faf5eb;
+
+    /* Canvas & Surface */
+    --clr-canvas:        #f0f0f2;
+    --clr-surface:       #ffffff;
+
+    /* Gray scale */
+    --clr-gray-50:  #fafafa;
+    --clr-gray-100: #f4f5f6;
+    --clr-gray-200: #eaecee;
+    --clr-gray-300: #d5d8dc;
+    --clr-gray-400: #b0b5bb;
+    --clr-gray-500: #8a9099;
+    --clr-gray-600: #636b75;
+    --clr-gray-700: #404850;
+    --clr-gray-800: #282c32;
+    --clr-gray-900: #0c121d;
+
+    /* Semantic */
+    --clr-text-primary:   #0c121d;
+    --clr-text-secondary: #636b75;
+    --clr-text-muted:     #8a9099;
+    --clr-text-inverse:   #ffffff;
+
+    --clr-success:     #2d6a4f;
+    --clr-success-bg:  #d8f3dc;
+    --clr-error:       #9b2226;
+    --clr-error-dark:  #7f1d1d;
+    --clr-error-bg:    #fde8e8;
+    --clr-warning:     #7b5c00;
+    --clr-warning-bg:  #fff3cd;
+
+    --clr-link:          #2563a8;
+
+    --clr-border:        #eaecee;
+    --clr-border-strong: #d5d8dc;
+
+    /* Spacing */
+    --sp-1: 4px;  --sp-2: 8px;  --sp-3: 12px; --sp-4: 16px;
+    --sp-5: 20px; --sp-6: 24px; --sp-8: 32px; --sp-10: 40px;
+    --sp-12: 48px; --sp-16: 64px;
+
+    /* Typography */
+    --font-sans:  'Poppins', system-ui, sans-serif;
+    --font-serif: 'EB Garamond', 'Times New Roman', serif;
+
+    --text-xs:   0.714rem;
+    --text-sm:   0.857rem;
+    --text-base: 1rem;
+    --text-lg:   1.143rem;
+    --text-xl:   1.429rem;
+    --text-2xl:  1.714rem;
+    --text-3xl:  2.286rem;
+
+    --fw-regular:  400;
+    --fw-medium:   500;
+    --fw-semibold: 600;
+    --fw-bold:     700;
+
+    /* Radius */
+    --radius-sm:   4px;
+    --radius-md:   6px;
+    --radius-lg:   10px;
+    --radius-xl:   14px;
+    --radius-full: 9999px;
+
+    /* Shadows */
+    --shadow-sm: 0 1px 2px rgb(0 0 0 / .05);
+    --shadow-md: 0 2px 8px rgb(0 0 0 / .08);
+    --shadow-lg: 0 8px 24px rgb(0 0 0 / .12);
+    --shadow-xl: 0 16px 48px rgb(0 0 0 / .18);
+
+    /* Motion */
+    --ease:         cubic-bezier(.4, 0, .2, 1);
+    --dur-fast:     120ms;
+    --dur-base:     200ms;
+
+    /* Layout */
+    --sidebar-width: 240px;
+    --topnav-height: 56px;
+  }
+}

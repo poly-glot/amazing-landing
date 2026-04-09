@@ -1,0 +1,14 @@
+{{define "fragments/flash-messages.html"}}
+{{if .Success}}
+<div class="c-alert c-alert--success" role="alert" data-flash>
+  <img class="c-alert__icon c-icon" src="/assets/icons/check.svg" alt="" aria-hidden="true">
+  <span>{{.Success}}</span>
+</div>
+{{end}}
+{{if .Error}}
+<div class="c-alert c-alert--error" role="alert" data-flash>
+  <img class="c-alert__icon c-icon" src="/assets/icons/alert-circle.svg" alt="" aria-hidden="true">
+  <span>{{.Error}}</span>
+</div>
+{{end}}
+{{end}}

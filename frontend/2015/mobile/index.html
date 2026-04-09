@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="en">
+<head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# product: http://ogp.me/ns/product#">
+	<meta charset="UTF-8">
+	<title>Your Free 7-Day Skincare Trial! Answer 3 simple questions to discover the perfect new moisturiser to transform your skin</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+	<link href='https://fonts.googleapis.com/css?family=Lato:100,400,300,700' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="overrides.css">
+	<link rel="icon" href="/favicon.ico" type="image/x-icon" />
+</head>
+<body>
+	<div id="fb-root"></div>
+
+<!--@include: ../../assets/svg-symbols.html -->
+
+	<div class="loader-container" style="display: block;" id="main-loader">
+		<div class="loader">Loading...</div>
+	</div>
+
+	<div data-role="page" id="page-landing">
+		<div role="main" class="ui-content">
+			<div class="main-logo-container">
+					<svg class="site-logo">
+						<use xlink:href="#logo"></use>
+					</svg>
+			</div>
+
+			<div class="landing-introduction">
+				<h3 class="light text-white text-uppercase landing-heading">
+					it's time to reveal your
+					skin's true beauty story
+				</h3>
+			</div>
+
+			<footer class="landing-next">
+
+				<p class="cta-text large light lead">
+					<strong>Start your FREE 7-Day skincare trial!</strong><br>
+					Simply answer 3 questions to discover the perfect
+					Azadi moisturiser for you
+				</p>
+
+				<a class="two-lines-button two-lines-button-sm next-question" href="#" data-rel="show-age">
+					<div class="two-lines-button-inner">
+						<div class="btn-content" data-hover="Start">
+							<div class="btn-text">Start</div>
+						</div>
+					</div>
+				</a>
+
+			</footer>
+
+			<div class="landing-products">
+				<div class="landing-item bg-yellow">
+					<div class="landing-image">
+						<img src="assets/images/bloom.png" alt="bloom" class="center-block img-responsive" />
+					</div>
+				</div>
+				<div class="landing-item bg-sky">
+					<div class="landing-image">
+						<img src="assets/images/silk.png" alt="silk"  class="center-block img-responsive" />
+					</div>
+				</div>
+				<div class="landing-item bg-red">
+					<div class="landing-image">
+						<img src="assets/images/glow.png" alt="glow" class="center-block img-responsive" />
+					</div>
+				</div>
+				<div class="landing-item bg-blue">
+					<div class="landing-image">
+						<img src="assets/images/rise.png" alt="rise" class="center-block img-responsive" />
+					</div>
+				</div>
+			</div>
+
+			<div class="legal-links small">
+				<ul class="list-inline">
+					<li><a href="#" data-toggle="modal" data-target="#modal-terms">Terms and Conditions</a></li>
+					<li>Cookie Policy
+						<a href="https://azadi-cosmetics.com/privacy" target="_blank">UK</a>
+						<a href="https://azadi-cosmetics.com/privacy" target="_blank">Ireland</a>
+					</li>
+
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<div data-role="page" id="page-questions-age">
+		<div role="main" class="ui-content">
+			<div class="normal-page">
+	<header class="page-header">
+
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-12">
+					<div class="h2 section-title section-title-1 center-block light">
+						<div class="section-title-text">
+							Just between us,<br/>
+							what is your age group?
+						</div>
+
+						<div class="indicator">
+							<div class="ind-col ind-col-active"></div>
+							<div class="ind-col "></div>
+							<div class="ind-col "></div>
+							<div class="ind-col "></div>
+							<div class="ind-col "></div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+
+	</header>
+
+	<div class="questions-container">
+		<ul class="questions">
+
+		</ul>
+	</div>
+</div>
+
+<footer class="page-footer disabled">
+
+	<a class="two-lines-button two-lines-button-sm disabled next-question" data-rel="show-skin" href="#">
+		<div class="two-lines-button-inner">
+			<div class="btn-content" data-hover="Next">
+				<div class="btn-text">Next</div>
+			</div>
+		</div>
+	</a>
+
+</footer>
+		</div>
+	</div>
+
+	<div data-role="page" id="page-questions-skin">
+		<div role="main" class="ui-content">
+			<div class="normal-page">
+	<header class="page-header">
+
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-12">
+					<div class="h2 section-title section-title-2 center-block light">
+						<div class="section-title-text">
+							How would you<br />
+							describe your skin?
+						</div>
+
+						<div class="indicator">
+							<div class="ind-col ind-col-active"></div>
+							<div class="ind-col ind-col-active"></div>
+							<div class="ind-col "></div>
+							<div class="ind-col "></div>
+							<div class="ind-col "></div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+
+	</header>
+
+	<div class="questions-container">
+		<ul class="questions">
+
+		</ul>
+	</div>
+</div>
+
+<footer class="page-footer disabled">
+
+	<a class="two-lines-button two-lines-button-sm disabled next-question" data-rel="show-concern" href="#">
+		<div class="two-lines-button-inner">
+			<div class="btn-content" data-hover="Next">
+				<div class="btn-text">Next</div>
+			</div>
+		</div>
+	</a>
+
+</footer>
+		</div>
+	</div>
+
+	<div data-role="page" id="page-questions-concern">
+		<div role="main" class="ui-content">
+			<div class="normal-page">
+	<header class="page-header">
+
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-12">
+					<div class="h2 section-title section-title-3 center-block light">
+						<div class="section-title-text">
+							What are your 2<br />
+							main skin concerns?
+						</div>
+
+						<div class="indicator">
+							<div class="ind-col ind-col-active"></div>
+							<div class="ind-col ind-col-active"></div>
+							<div class="ind-col ind-col-active"></div>
+							<div class="ind-col "></div>
+							<div class="ind-col "></div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+
+	</header>
+
+	<div class="questions-container">
+		<ul class="questions">
+
+		</ul>
+	</div>
+</div>
+
+<footer class="page-footer disabled">
+
+	<a class="two-lines-button two-lines-button-sm disabled next-question" data-rel="show-results" href="#">
+		<div class="two-lines-button-inner">
+			<div class="btn-content" data-hover="Next">
+				<div class="btn-text">Next</div>
+			</div>
+		</div>
+	</a>
+
+</footer>
+		</div>
+	</div>
+
+	<div data-role="page" id="page-questions-results" class="bg-blue page-results">
+		<div role="main" class="ui-content">
+			<header class="page-header">
+
+	<div class="container results-container">
+		<div class="inner-logo-container">
+			<a href="https://azadi-cosmetics.com/" target="_blank">
+				<svg class="site-logo">
+					<use xlink:href="#logo"></use>
+				</svg>
+			</a>
+		</div>
+
+		<div class="indicator">
+			<div class="ind-col ind-col-active"></div>
+			<div class="ind-col ind-col-active"></div>
+			<div class="ind-col ind-col-active"></div>
+			<div class="ind-col ind-col-active"></div>
+			<div class="ind-col "></div>
+		</div>
+	</div>
+
+</header>
+
+
+<div class="page-content">
+
+	<div class="results-container">
+
+		<div class="product-info text-white text-center">
+
+			<div id="product-Bloom" class="text-dark-brown hidden">
+				<div class="product-title">
+					<p class="text-uppercase light">Your recommended product is:</p>
+
+					<div class="section-inline-title">
+						<h1 class="text-uppercase light">Bloom Cream</h1>
+
+						<div class="product-tagline">
+							- Ultimate Anti-ageing -
+						</div>
+					</div>
+				</div>
+
+				<div class="product-image">
+					<!--<img src="assets/images/products/product-bloom.png" alt="bloom" class="center-block img-responsive" />-->
+				</div>
+
+				<div class="product-description">
+					Our most advanced formula, this silky smooth cream acts at the heart of skin cells to reduce the appearance of lines, wrinkles and UV damage. With a patented blend of organic Bloom and 7 natural active ingredients, this powerful cream helps restore firmness, definition and radiance to the skin.
+				</div>
+			</div>
+
+			<div id="product-Glow" class="hidden">
+				<div class="product-title">
+					<p class="text-uppercase light">Your recommended product is:</p>
+
+					<div class="section-inline-title border-white">
+						<h1 class="text-uppercase light">Glow sublime</h1>
+
+						<div class="product-tagline">
+							- Perfecting &amp; Refining -
+						</div>
+					</div>
+				</div>
+
+				<div class="product-image">
+
+				</div>
+
+				<div class="product-description">
+					Formulated with a patented skin-perfecting peony extract and mineral-based optical correctors, this 24h-moisturising cream helps achieve perfect-looking skin by visibly reducing the appearance of pores, fine lines, redness and imperfections.
+				</div>
+			</div>
+
+			<div id="product-Rise" class="hidden">
+				<div class="product-title">
+					<p class="text-uppercase light">Your recommended product is:</p>
+
+					<div class="section-inline-title border-white">
+						<h1 class="text-uppercase light">Rise Cream</h1>
+
+						<div class="product-tagline">
+							- Firming & Lifting -
+						</div>
+					</div>
+				</div>
+
+				<div class="product-image">
+
+				</div>
+
+				<div class="product-description">
+					Ideal for tackling the first signs of ageing skin, this silky cream is formulated with skin firming Bloom plant extracts to help reduce the look of fine lines & wrinkles for skin that ultimately looks smoother and more supple.
+				</div>
+			</div>
+
+			<div id="product-Silk" class="hidden">
+				<div class="product-title">
+					<p class="text-uppercase light">Your recommended product is:</p>
+
+					<div class="section-inline-title border-white">
+						<h1 class="text-uppercase light">Silk Light <br/>Comforting Cream</h1>
+
+						<div class="product-tagline">
+							- Protecting & Nourishing -
+						</div>
+					</div>
+				</div>
+
+				<div class="product-image">
+
+				</div>
+
+				<div class="product-description">
+					Enriched with 5% organic silk butter, this gentle moisturiser strengthens, nourishes and hydrates normal to dry and sensitive skin. Rich in omega 6, karitene and vitamin E, this light textured cream fortifies the skin's natural defences in order to protect against dryness and harsh conditions
+				</div>
+			</div>
+
+		</div>
+
+		<div class="form-container-top">
+			<img src="assets/images/p_header_big.png" class="img-responsive" alt="spacer" />
+		</div>
+		<div class="form-container text-brown">
+			<div class="form-container-inner">
+
+				<h3 class="section-title section-title-form center-block light">
+					<span class="section-title-text text-uppercase shadow">
+						Pick Up Your Free<br/>
+						<strong>7-day Trial</strong>
+					</span>
+				</h3>
+
+				<div class="hero-transition-container">
+					<div class="customer-information">
+
+						<form id="customer-information-form">
+
+							<div class="form-group form-group-lg form-group-firstname">
+								<label class="control-label text-uppercase" for="first_name">FIRST NAME*</label>
+
+								<div class="controls">
+									<input type="text" id="first_name" name="first_name" class="form-control"/>
+								</div>
+							</div>
+
+							<div class="form-group form-group-lg">
+								<label class="control-label text-uppercase" for="last_name">LAST NAME*</label>
+
+								<div class="controls">
+									<input class="form-control" type="text" id="last_name" name="last_name"/>
+
+								</div>
+							</div>
+
+							<div class="form-group form-group-lg">
+								<label class="control-label text-uppercase" for="email">EMAIL ADDRESS*</label>
+
+								<div class="controls">
+									<input class="form-control" type="text" id="email" name="email"
+									       placeholder="Yourname@email.com">
+								</div>
+							</div>
+
+							<div class="form-group form-group-checkbox ">
+								<div class="checkbox">
+									<label>
+										<input type="checkbox" name="subscribe" id="subscribe"
+										       checked="checked"/>
+										Yes, I would like to receive Azadi's email newsletter
+									</label>
+								</div>
+							</div>
+
+							<div class="form-group form-group-checkbox ">
+								<div class="checkbox">
+									<label>
+										<input type="checkbox" name="terms" id="terms"/>
+										I accept the <a href="#" data-toggle="modal" data-target="#modal-terms" class="text-brown"><u>terms &
+												conditions*</u></a>
+									</label>
+								</div>
+							</div>
+
+							<div class="form-group form-group-lg form-group-location">
+								<label class="control-label text-uppercase" for="location">Your
+									location*</label>
+
+								<div class="controls">
+									<input class="form-control" type="text" id="location" name="location" placeholder="Your town or postcode" disabled="disabled">
+
+									<div class="input-search-icon">
+										<svg class="search-icon">
+											<use xlink:href="#search"></use>
+										</svg>
+									</div>
+								</div>
+
+								<p class="m-20">
+									<a href="#" id="reload-google-map" class="text-danger">
+										Unable to load Google Address Lookup, Please click here to re-load.
+									</a>
+								</p>
+
+							</div>
+
+							<a class="two-lines-button two-lines-button-lg dark disabled" href="#">
+								<div class="two-lines-button-inner">
+									<div class="btn-content" data-hover="Next">
+										<div class="btn-text">Next</div>
+									</div>
+								</div>
+							</a>
+
+						</form>
+
+						<div class="loader-container">
+							<div class="loader">Loading...</div>
+						</div>
+
+					</div>
+
+					<div class="store-information hidden">
+
+						<div class="form-group form-group-lg form-group-location">
+							<label class="control-label text-uppercase" for="location_2">Your
+								location*</label>
+
+							<div class="controls">
+								<input class="form-control" type="text" id="location_2" name="location" placeholder="" >
+
+								<div class="input-search-icon">
+									<svg class="search-icon">
+										<use xlink:href="#search"></use>
+									</svg>
+								</div>
+							</div>
+						</div>
+
+						<div class="store-selector text-dark-brown">
+							<h4 class="lead text-uppercase light">
+								closest boutique
+											<span class="text-brown">
+												<span id="current-store-index">1</span>
+												/
+												<span id="total-stores">5</span> :
+											</span>
+							</h4>
+
+							<div class="store-items">
+
+							</div>
+
+							<a class="two-lines-button two-lines-button-lg dark next-question" href="#" data-rel="show-voucher" id="get-your-voucher-btn">
+								<div class="two-lines-button-inner">
+									<div class="btn-content" data-hover="get your voucher">
+										<div class="btn-text">get your voucher</div>
+									</div>
+								</div>
+							</a>
+
+						</div>
+
+					</div>
+				</div>
+
+			</div>
+
+			<div class="speical-note small">*Mandatory fields</div>
+		</div>
+		<div class="form-container-bottom">
+			<img src="assets/images/p_footer_big.png" class="img-responsive" alt="spacer" />
+		</div>
+	</div>
+
+</div>
+		</div>
+	</div>
+
+
+	<div data-role="page" id="page-questions-voucher" class="page-voucher">
+		<div role="main" class="ui-content">
+			<header class="page-header page-header-static bg-yellow">
+
+	<div class="results-container">
+		<div class="inner-logo-container">
+			<a href="https://azadi-cosmetics.com/" target="_blank">
+				<svg class="site-logo text-blue">
+					<use xlink:href="#logo"></use>
+				</svg>
+			</a>
+		</div>
+
+		<div class="share-this text-uppercase text-blue">
+			<div class="pull-right">
+
+				<div class="share-this-item">
+					<a href="#" class="social-link social-link-facebook">
+						<svg class="facebook-icon">
+							<use xlink:href="#facebook"></use>
+						</svg>
+					</a>
+					<a href="#" class="social-link social-link-twitter">
+						<svg class="twitter-icon">
+							<use xlink:href="#twitter"></use>
+						</svg>
+					</a>
+				</div>
+
+				<div class="share-this-item last">
+					<a href="https://twitter.com/hashtag/MyBeautyStory" class="text-blue" target="_blank">#MyBeautyStory</a>
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+</header>
+
+<div class="page-content">
+
+	<div class="results-container">
+
+		<h1 class="voucher-item section-main light text-center">
+			THANK YOU!
+			<strong id="firstname" class="text-uppercase">caroline</strong>
+		</h1>
+
+		<h2 class="voucher-item how-to-get-product light">
+			We have emailed your voucher to you.
+			Simply take this into your nearest boutique at:<br /><br />
+
+			<span  id="store-address" style="font-weight:600"><strong>177 Cannon Street, London, Ec4n 5ax </strong></span>
+			to pick up your free pot of: <span id="product-name" style="font-weight:600">Bloom Cream 8ml</span> <span style="font-weight:600">Cream 8ML</span><br /><br />
+
+
+
+			Hurry! <strong>Your 7-day trial is only
+			available while stocks last.</strong>
+			Remember to collect by <strong>2nd November 2015</strong>
+
+		</h2>
+
+		<div class="voucher-item  promotion-offer h2">
+
+			<div class="promotion-box light">
+
+				<svg class="promotion-box-cut-top-left">
+					<use xlink:href="#cut-bg"></use>
+				</svg>
+
+				<svg class="promotion-box-cut-top-right">
+					<use xlink:href="#cut-bg"></use>
+				</svg>
+
+				<svg class="promotion-box-cut-bottom-left">
+					<use xlink:href="#cut-bg"></use>
+				</svg>
+
+				<svg class="promotion-box-cut-bottom-right">
+					<use xlink:href="#cut-bg"></use>
+				</svg>
+
+				<div class="promotion-box-title">
+					<p class="">EXCLUSIVELY FOR YOU!</p>
+					<h1 class="heavy">
+						<span class="currency">&pound;</span><span class="amount1">10</span>
+						OFF SKINCARE
+					</h1>
+					<p class="">
+						WHEN YOU SPEND
+						<span class="currency">&pound;</span><span class="amount2">25</span>
+						OR MORE*
+					</p>
+				</div>
+
+				<div class="promotion-box-text">
+					<p>You will receive your exclusive offer on collection of your 7-day trial instore</p>
+
+					<a href="https://azadi-cosmetics.com/terms" target="_blank" class="terms-and-condition-link">*Terms and conditions apply</a>
+				</div>
+			</div>
+
+		</div>
+
+		<div class="voucher-inner-container">
+			<div class="voucher-item">
+				<p class="h3 light text-center">DISCOVER YOUR<br /> FULL ROUTINE</p>
+
+				<div class="owl-carousel product-carousel">
+
+				</div>
+			</div>
+
+			<div class="voucher-item button-external">
+
+				<a class="two-lines-button" href="https://azadi-cosmetics.com/" target="_blank" id="find-out-more">
+					<div class="two-lines-button-inner">
+						<div class="btn-content" data-hover="find out more">
+							<div class="btn-text">find out more</div>
+						</div>
+					</div>
+				</a>
+
+			</div>
+		</div>
+
+		<div class="voucher-item help h2">
+			<p class="note text-center">
+				Need help? Contact our Customer Services team: <a href="mailto:contact@azadi-cosmetics.com">contact@azadi-cosmetics.com</a>
+				Our Customer Services Advisors are available: Monday – Friday 9.00am-7.00pm (excluding Bank Holidays) and Saturdays 9.00am-4.30pm
+			</p>
+		</div>
+
+	</div>
+</div>
+		</div>
+	</div>
+
+	<div class="modal fade text-black light" id="modal-terms">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<h2 class="modal-title no-margin light text-dark-brown">Terms &amp; Conditions</h2>
+				</div>
+				<div class="modal-body">
+					<p>Free Sample offer valid in the 86 participating UK and Ireland Azadi-owned boutiques only.
+						Offer not valid online, at wholesale partners such as department stores, airports or AZADI
+						outlet boutiques (Bicester, Portsmouth, Cheshire Oaks) and Trentham Gardens boutique.
+						One free sample per customer only. Sign-up for our VIP programme and presentation of an electronic
+						or printed voucher is mandatory when collecting a sample. This offer is non-transferable and can
+						only be redeemed by the owner of the email account registered. Sample may vary depending on
+						stock availability.</p>
+
+					<p>AZADI reserve the right to substitute this sample with an alternative sample.</p>
+
+					<p>Offer available to UK and Ireland residents of at least 18 years of age only,
+						valid until 2nd November 2015 or while stocks last, whichever is earlier.
+						To redeem the offer, valid email invite must be presented to boutique staff.
+						AZADI does not accept responsibility for network, computer, hardware or software
+						failures of any kind, which may restrict or delay the sending or receipt of your voucher.
+						Any person found to be redeeming more than once by registering with multiple
+						email accounts will be deemed ineligible. Offer not open to AZADI staff.
+						AZADI reserves the right to withdraw or change any part of
+						this offer at any time.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="modal fade text-black" id="modal-cookies">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<h4 class="modal-title">Cookie Policy</h4>
+				</div>
+				<div class="modal-body">
+					<p>Here will be Cookie Policy</p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<script type="text/javascript">
+		var basehost            = '';
+		var baseurl             = '/2015/mobile/';
+		var firebase_url        = '';
+		var baseurl_api         = '/';
+		var main_promotion_slug = 'default';
+		var pdf_link            = '#';
+		var tracking_url        = '/mobile/default/';
+
+		var MasterTmsUdo        = {};
+
+		// Stubs for third-party SDKs not loaded in dev
+		window.ga = window.ga || function(){};
+		if (typeof Firebase === 'undefined') {
+			window.Firebase = function(){};
+			Firebase.prototype.authWithCustomToken = function(t,cb){ if(cb) cb(); };
+			Firebase.prototype.child = function(){ return this; };
+			Firebase.prototype.once = function(e,cb){ cb({ val:function(){return null}, forEach:function(){} }); };
+		}
+	</script>
+
+	<script type="text/javascript" src="assets/libs/jquery-1.10.2.min.js"></script>
+	<script type="text/javascript" src="assets/libs/Promise.js"></script>
+	<script type="text/javascript" src="assets/libs/jquery.mobile-1.4.5.min.js"></script>
+
+	<script type="text/javascript" src="assets/libs/owl.carousel.js"></script>
+
+	<script type="text/javascript" src="src-js/azadi-question-map.js"></script>
+	<script type="text/javascript" src="src-js/azadi-stores-map.js"></script>
+	<script type="text/javascript" src="src-js/azadi-api.js"></script>
+	<script type="text/javascript" src="src-js/azadi-customer.js"></script>
+	<script type="text/javascript" src="src-js/azadi-indicator.js"></script>
+	<script type="text/javascript" src="src-js/landing.js"></script>
+	<script type="text/javascript" src="src-js/questions.js"></script>
+	<script type="text/javascript" src="src-js/results.js"></script>
+	<script type="text/javascript" src="src-js/azadi-results.js"></script>
+	<script type="text/javascript" src="src-js/voucher.js"></script>
+	<script type="text/javascript" src="src-js/azadi-sharing.js"></script>
+	<script type="text/javascript" src="src-js/find-out-more.js"></script>
+
+</body>
+</html>

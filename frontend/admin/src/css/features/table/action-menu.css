@@ -1,0 +1,75 @@
+@layer components {
+  .c-action-menu {
+    position: relative;
+    display: inline-block;
+  }
+
+  .c-action-menu__trigger {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    inline-size: 32px;
+    block-size: 32px;
+    border-radius: var(--radius-md);
+    border: 1px solid transparent;
+    background: transparent;
+    color: var(--clr-text-muted);
+    cursor: pointer;
+    transition: background var(--dur-fast) var(--ease), border-color var(--dur-fast) var(--ease);
+  }
+  .c-action-menu__trigger:hover {
+    background: var(--clr-gray-100);
+    border-color: var(--clr-border);
+    color: var(--clr-text-primary);
+  }
+  .c-action-menu__trigger[aria-expanded="true"] {
+    background: var(--clr-gray-100);
+    border-color: var(--clr-border-strong);
+  }
+
+  .c-action-menu__dropdown {
+    position: absolute;
+    inset-block-start: calc(100% + var(--sp-1));
+    inset-inline-end: 0;
+    min-inline-size: 160px;
+    background: var(--clr-surface);
+    border: 1px solid var(--clr-border);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-md);
+    z-index: 200;
+    padding: var(--sp-1);
+    list-style: none;
+    margin: 0;
+  }
+  .c-action-menu__dropdown[hidden] { display: none; }
+
+  .c-action-menu__item {
+    display: flex;
+    align-items: center;
+    gap: var(--sp-2);
+    width: 100%;
+    padding: var(--sp-2) var(--sp-3);
+    border-radius: var(--radius-sm);
+    font-size: var(--text-sm);
+    color: var(--clr-text-primary);
+    text-decoration: none;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    text-align: start;
+    transition: background var(--dur-fast) var(--ease);
+  }
+  .c-action-menu__item:hover { background: var(--clr-gray-100); text-decoration: none; }
+
+  .c-action-menu__item--danger { color: var(--clr-error); }
+  .c-action-menu__item--danger:hover { background: var(--clr-error-bg); }
+
+  .c-action-menu__item--warning { color: var(--clr-warning); }
+  .c-action-menu__item--warning:hover { background: var(--clr-warning-bg); }
+
+  .c-action-menu__icon {
+    inline-size: 14px;
+    block-size: 14px;
+    flex-shrink: 0;
+  }
+}

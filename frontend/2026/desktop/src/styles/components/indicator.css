@@ -1,0 +1,27 @@
+/* ==========================================================================
+   INDICATOR
+   ========================================================================== */
+
+.indicator {
+  position:absolute;
+  top:0;
+  right:40px;
+  font-size:0;
+  line-height:0;
+  visibility:hidden;
+}
+
+.ind-col {
+  background-color:#fff;
+  width:20px;
+  height:2px;
+  margin-right:2px;
+  display:inline-block;
+  opacity:.4;
+  transition:.3s ease-in-out height,.3s ease-in-out opacity;
+}
+
+.ind-col-active {
+  height:4px;
+  opacity:1;
+}

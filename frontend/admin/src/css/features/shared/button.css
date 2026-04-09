@@ -1,0 +1,116 @@
+@layer components {
+  .c-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--sp-2);
+    padding: var(--sp-2) var(--sp-4);
+    border-radius: var(--radius-md);
+    font-size: var(--text-sm);
+    font-weight: var(--fw-medium);
+    border: 1.5px solid transparent;
+    cursor: pointer;
+    white-space: nowrap;
+    text-decoration: none;
+    min-inline-size: 80px;
+    transition: background var(--dur-fast) var(--ease),
+                border-color var(--dur-fast) var(--ease),
+                color var(--dur-fast) var(--ease);
+  }
+
+  /* Primary: dark filled */
+  .c-button--primary,
+  .c-button:not([class*="c-button--"]) {
+    background: var(--clr-brand-dark);
+    color: var(--clr-text-inverse);
+    border-color: var(--clr-brand-dark);
+  }
+  .c-button--primary:hover,
+  .c-button:not([class*="c-button--"]):hover {
+    background: var(--clr-gray-700);
+    border-color: var(--clr-gray-700);
+    text-decoration: none;
+    color: var(--clr-text-inverse);
+  }
+
+  /* Ghost / secondary */
+  .c-button--secondary,
+  .c-button--ghost {
+    background: transparent;
+    color: var(--clr-text-primary);
+    border-color: var(--clr-border-strong);
+  }
+  .c-button--secondary:hover,
+  .c-button--ghost:hover {
+    background: var(--clr-gray-100);
+    text-decoration: none;
+    color: var(--clr-text-primary);
+  }
+
+  /* Danger */
+  .c-button--danger {
+    background: var(--clr-error);
+    color: var(--clr-text-inverse);
+    border-color: var(--clr-error);
+  }
+  .c-button--danger:hover {
+    background: var(--clr-error-dark);
+    border-color: var(--clr-error-dark);
+    text-decoration: none;
+    color: var(--clr-text-inverse);
+  }
+
+  /* Small */
+  .c-button--small {
+    padding: var(--sp-1) var(--sp-3);
+    font-size: var(--text-xs);
+    min-inline-size: 60px;
+  }
+
+  /* Icon-only */
+  .c-button--icon {
+    min-inline-size: unset;
+    padding: var(--sp-2);
+    aspect-ratio: 1;
+  }
+
+  /* Outline: primary-coloured border, transparent fill */
+  .c-button--outline {
+    background: transparent;
+    color: var(--clr-brand-dark);
+    border-color: var(--clr-brand-dark);
+  }
+  .c-button--outline:hover {
+    background: var(--clr-gray-100);
+    text-decoration: none;
+    color: var(--clr-brand-dark);
+  }
+
+  /* Link: looks like a text link, stays a <button> */
+  .c-button--link {
+    background: transparent;
+    border-color: transparent;
+    color: var(--clr-link);
+    font-weight: var(--fw-semibold);
+    min-inline-size: unset;
+    padding-inline: 0;
+    text-decoration: none;
+  }
+  .c-button--link:hover {
+    background: transparent;
+    text-decoration: underline;
+    color: var(--clr-link);
+  }
+
+  /* Invert icons on filled (dark/coloured) buttons */
+  .c-button--primary img,
+  .c-button--danger img {
+    filter: brightness(0) invert(1);
+  }
+
+  /* Keyboard focus */
+  .c-button:focus-visible {
+    outline: 2px solid var(--clr-brand-gold);
+    outline-offset: 2px;
+  }
+}

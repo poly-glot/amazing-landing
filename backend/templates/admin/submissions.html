@@ -1,0 +1,55 @@
+{{define "admin/submissions.html"}}{{template "layout.html" .}}{{end}}
+{{define "content"}}
+
+<nav class="c-breadcrumb" aria-label="Breadcrumb">
+  <a class="c-breadcrumb__link" href="/admin">Home</a>
+  <img class="c-breadcrumb__sep c-icon" src="/assets/icons/chevron-right.svg" alt="" aria-hidden="true">
+  <span class="c-breadcrumb__current">Submissions</span>
+</nav>
+
+<div class="c-page-header">
+  <h1 class="c-page-title">Submissions</h1>
+  <a href="/admin/submissions/export" class="c-button c-button--secondary">
+    <img class="c-icon c-icon--sm" src="/assets/icons/download.svg" alt="" aria-hidden="true">
+    Export CSV
+  </a>
+</div>
+
+<div class="c-table-wrap">
+  <table class="c-table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Product</th>
+        <th>Store</th>
+        <th>Date</th>
+        <th class="c-table__actions"></th>
+      </tr>
+    </thead>
+    <tbody>
+      {{range .Submissions}}
+      <tr>
+        <td>{{.Firstname}} {{.Lastname}}</td>
+        <td class="t-secondary">{{.Email}}</td>
+        <td>{{.Product}}</td>
+        <td class="t-secondary">{{.StoreID}}</td>
+        <td class="t-secondary">{{.CreatedAt.Format "Jan 02, 2006"}}</td>
+        <td class="c-table__actions">
+          <a href="/admin/submissions/{{.ID}}" class="c-button c-button--secondary c-button--small">View</a>
+        </td>
+      </tr>
+      {{else}}
+      <tr><td class="c-table__empty" colspan="6">No submissions found.</td></tr>
+      {{end}}
+    </tbody>
+  </table>
+</div>
+
+<div class="c-pagination">
+  <p class="c-pagination__info">Showing {{.PageSize}} per page</p>
+  {{if .HasNext}}
+  <a href="/admin/submissions?cursor={{.NextCursor}}" class="c-button c-button--secondary c-button--small">Next page &rarr;</a>
+  {{end}}
+</div>
+{{end}}

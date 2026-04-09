@@ -1,0 +1,12 @@
+/* voucher.css */
+
+#page-questions-voucher .voucher-item {
+  margin-top:0;
+  margin-bottom:50px;
+}
+
+#page-questions-voucher .voucher-inner-container {
+  width:calc(100% - 40px);
+  margin-left:auto;
+  margin-right:auto;
+}

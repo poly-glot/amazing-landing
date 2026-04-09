@@ -1,0 +1,87 @@
+/* ==========================================================================
+   UTILITIES
+   ========================================================================== */
+
+[hidden] {
+  display:none;
+}
+
+@media print {
+  *,:after,:before {
+    background:0 0!important;
+    color:#000!important;
+    box-shadow:none!important;
+    text-shadow:none!important;
+  }
+  a[href]:after {
+    content:" (" attr(href) ")";
+  }
+}
+
+.img-responsive {
+  display:block;
+  max-width:100%;
+  height:auto;
+}
+
+.list-inline {
+  padding-left:0;
+  list-style:none;
+}
+
+.list-inline {
+  margin-left:-5px;
+}
+
+.list-inline>li {
+  display:inline-block;
+  padding-left:5px;
+  padding-right:5px;
+}
+
+.center-block {
+  display:block;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+.pull-right {
+  float:right!important;
+}
+
+.hide {
+  display:none!important;
+}
+
+.show {
+  display:block!important;
+}
+
+.hidden {
+  display:none!important;
+}
+
+@-ms-viewport {
+  width:device-width;
+}
+
+.no-margin {
+  margin-top:0;
+}
+
+.m-20,.m-b-20 {
+  margin-bottom:20px;
+}
+
+.m-20 {
+  margin-top:20px;
+}
+
+@-o-keyframes spin {
+  0% {
+    -o-transform:rotate(0);
+  }
+  100% {
+    -o-transform:rotate(359deg);
+  }
+}

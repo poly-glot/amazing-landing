@@ -1,0 +1,66 @@
+{{define "admin/dashboard.html"}}{{template "layout.html" .}}{{end}}
+{{define "content"}}
+
+<nav class="c-breadcrumb" aria-label="Breadcrumb">
+  <span class="c-breadcrumb__current">Dashboard</span>
+</nav>
+
+<div class="c-page-header">
+  <div>
+    <h1 class="c-page-title">Dashboard</h1>
+    <p class="c-page-subtitle">Overview of your Azadi landing page system.</p>
+  </div>
+</div>
+
+<div class="c-stats-grid">
+  <div class="c-stat-card">
+    <p class="c-stat-card__number">{{.StoreCount}}</p>
+    <p class="c-stat-card__label">Stores</p>
+    <a href="/admin/stores" class="c-stat-card__link">Manage stores &rarr;</a>
+  </div>
+  <div class="c-stat-card">
+    <p class="c-stat-card__number">{{.PromoCount}}</p>
+    <p class="c-stat-card__label">Promotions</p>
+    <a href="/admin/promotions" class="c-stat-card__link">Manage promotions &rarr;</a>
+  </div>
+  <div class="c-stat-card">
+    <p class="c-stat-card__number">{{.SubmissionCount}}</p>
+    <p class="c-stat-card__label">Submissions</p>
+    <a href="/admin/submissions" class="c-stat-card__link">View submissions &rarr;</a>
+  </div>
+  <div class="c-stat-card">
+    <p class="c-stat-card__number">{{.ProductCount}}</p>
+    <p class="c-stat-card__label">Products</p>
+    <a href="/admin/products" class="c-stat-card__link">Manage products &rarr;</a>
+  </div>
+</div>
+
+<div class="c-panel">
+  <div class="c-panel__header">
+    <h2 class="c-panel__title">Recent Submissions</h2>
+    <a href="/admin/submissions" class="c-stat-card__link">View all &rarr;</a>
+  </div>
+  <table class="c-table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Product</th>
+        <th>Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{range .RecentSubmissions}}
+      <tr>
+        <td>{{.Firstname}} {{.Lastname}}</td>
+        <td>{{.Email}}</td>
+        <td>{{.Product}}</td>
+        <td>{{.CreatedAt.Format "Jan 02, 2006"}}</td>
+      </tr>
+      {{else}}
+      <tr><td class="c-table__empty" colspan="4">No submissions yet.</td></tr>
+      {{end}}
+    </tbody>
+  </table>
+</div>
+{{end}}

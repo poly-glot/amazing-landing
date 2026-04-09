@@ -1,0 +1,63 @@
+{{define "admin/user-form.html"}}{{template "layout.html" .}}{{end}}
+{{define "content"}}
+
+<nav class="c-breadcrumb" aria-label="Breadcrumb">
+  <a class="c-breadcrumb__link" href="/admin">Home</a>
+  <img class="c-breadcrumb__sep c-icon" src="/assets/icons/chevron-right.svg" alt="" aria-hidden="true">
+  <a class="c-breadcrumb__link" href="/admin/users">Users</a>
+  <img class="c-breadcrumb__sep c-icon" src="/assets/icons/chevron-right.svg" alt="" aria-hidden="true">
+  <span class="c-breadcrumb__current">Invite User</span>
+</nav>
+
+<div class="c-page-header">
+  <div>
+    <h1 class="c-page-title">Invite Admin User</h1>
+    <p class="c-page-subtitle">A temporary password will be generated. The user must change it on first login.</p>
+  </div>
+</div>
+
+{{if .Created}}
+<div class="c-alert c-alert--success" role="alert">
+  <img class="c-alert__icon c-icon" src="/assets/icons/check.svg" alt="" aria-hidden="true">
+  <span><strong>User created successfully.</strong> Share the temporary password below with the new user. It will only be shown once.</span>
+</div>
+<div class="c-panel" style="margin-block-end:var(--sp-6)">
+  <div class="c-panel__header">
+    <h2 class="c-panel__title">New User Credentials</h2>
+  </div>
+  <div class="c-panel__body">
+    <dl class="c-dl">
+      <dt>Email</dt>
+      <dd>{{.NewUser.Email}}</dd>
+      <dt>Temporary Password</dt>
+      <dd><strong>{{.TempPassword}}</strong></dd>
+    </dl>
+  </div>
+</div>
+{{end}}
+
+{{if not .Created}}
+<div class="c-panel">
+  <div class="c-panel__body">
+    <form method="POST" action="/admin/users" class="c-form">
+      <input type="hidden" name="_csrf" value="{{.CSRFToken}}">
+
+      <div class="c-form__field">
+        <label for="name" class="c-form__label">Full Name</label>
+        <input type="text" id="name" name="name" required class="c-form__input" placeholder="Jane Dupont">
+      </div>
+
+      <div class="c-form__field">
+        <label for="email" class="c-form__label">Email Address</label>
+        <input type="email" id="email" name="email" required class="c-form__input" placeholder="jane.dupont@azadi.com">
+      </div>
+
+      <div class="c-form__actions">
+        <button type="submit" class="c-button c-button--primary">Create User</button>
+        <a href="/admin/users" class="c-button c-button--secondary">Cancel</a>
+      </div>
+    </form>
+  </div>
+</div>
+{{end}}
+{{end}}

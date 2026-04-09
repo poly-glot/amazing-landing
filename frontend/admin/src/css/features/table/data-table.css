@@ -1,0 +1,54 @@
+@layer components {
+  /* Wrapper panel for tables — no padding, table fills edge-to-edge */
+  .c-table-wrap {
+    border: 1px solid var(--clr-border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+  }
+
+  .c-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .c-table thead th {
+    background: var(--clr-gray-50);
+    border-block-end: 1px solid var(--clr-border-strong);
+    padding: var(--sp-3) var(--sp-4);
+    text-align: start;
+    font-size: var(--text-xs);
+    font-weight: var(--fw-semibold);
+    letter-spacing: .04em;
+    text-transform: uppercase;
+    color: var(--clr-text-muted);
+    white-space: nowrap;
+  }
+
+  .c-table tbody tr {
+    border-block-end: 1px solid var(--clr-border);
+    transition: background var(--dur-fast) var(--ease);
+  }
+  .c-table tbody tr:last-child { border-block-end: none; }
+  .c-table tbody tr:hover { background: var(--clr-gray-50); }
+
+  .c-table td {
+    padding: var(--sp-3) var(--sp-4);
+    font-size: var(--text-sm);
+    vertical-align: middle;
+    color: var(--clr-text-primary);
+  }
+
+  .c-table__actions {
+    text-align: end;
+    white-space: nowrap;
+    width: 56px;   /* just wide enough for ··· button */
+  }
+
+  /* Empty state row — higher specificity to override td padding */
+  .c-table .c-table__empty {
+    text-align: center;
+    color: var(--clr-text-muted);
+    padding: var(--sp-12) var(--sp-4);
+    font-size: var(--text-sm);
+  }
+}

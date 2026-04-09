@@ -1,0 +1,63 @@
+/* ==========================================================================
+   RESULTS
+   ========================================================================== */
+
+.page-results {
+  background:#ffc811;
+}
+
+.store-selector {
+  margin:40px 0;
+}
+
+.store-selector .store-items {
+  margin-bottom:10px;
+  padding-bottom:35px;
+  overflow:hidden;
+}
+
+.store-selector .store-item {
+  position:relative;
+}
+
+.store-selector .store-name {
+  display:block;
+  max-width:100%;
+  overflow:hidden;
+  max-height:1.2em;
+}
+
+.store-selector .store-address {
+  position:relative;
+  display:block;
+  margin-top:-14px;
+}
+
+.store-selector .store-image {
+  display:block;
+  background:#fff;
+  border:5px solid #fff;
+  box-shadow:4.5px 3.87px 5px 0 rgba(0,0,0,.22);
+  width:auto;
+  max-width:100%;
+  margin-bottom:10px;
+}
+
+.store-selector .store-image img {
+  max-width:100%;
+  height:auto;
+}
+
+.store-selector .map-link {
+  display:block;
+  padding-left:35px;
+  background:url('../../../assets/images/map-view.png') left center no-repeat;
+}
+
+@media screen and (max-width:1024px) {
+  .page-results .container {
+    width:100%;
+    margin-left:0;
+    margin-right:0;
+  }
+}

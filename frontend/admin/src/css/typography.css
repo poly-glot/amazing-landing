@@ -1,0 +1,12 @@
+@layer typography {
+  .t-serif { font-family: var(--font-serif); }
+  .t-muted  { color: var(--clr-text-muted); }
+  .t-secondary { color: var(--clr-text-secondary); }
+  .t-small  { font-size: var(--text-sm); }
+  .t-xs     { font-size: var(--text-xs); }
+  .u-visually-hidden {
+    position: absolute; width: 1px; height: 1px;
+    padding: 0; margin: -1px; overflow: hidden;
+    clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+  }
+}

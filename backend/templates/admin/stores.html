@@ -1,0 +1,82 @@
+{{define "admin/stores.html"}}{{template "layout.html" .}}{{end}}
+{{define "content"}}
+
+<nav class="c-breadcrumb" aria-label="Breadcrumb">
+  <a class="c-breadcrumb__link" href="/admin">Home</a>
+  <img class="c-breadcrumb__sep c-icon" src="/assets/icons/chevron-right.svg" alt="" aria-hidden="true">
+  <span class="c-breadcrumb__current">Stores</span>
+</nav>
+
+<div class="c-page-header">
+  <h1 class="c-page-title">Stores</h1>
+  <a class="c-button c-button--primary" href="/admin/stores/new">
+    <img class="c-icon c-icon--sm" src="/assets/icons/plus.svg" alt="" aria-hidden="true">
+    New Store
+  </a>
+</div>
+
+<div class="c-table-wrap">
+  <table class="c-table">
+    <thead>
+      <tr>
+        <th>Town</th>
+        <th>Address</th>
+        <th>Order</th>
+        <th>Status</th>
+        <th class="c-table__actions"></th>
+      </tr>
+    </thead>
+    <tbody>
+      {{range .Stores}}
+      <tr>
+        <td><strong>{{.Town}}</strong></td>
+        <td class="t-secondary">{{.Address}}</td>
+        <td>{{.SortOrder}}</td>
+        <td>
+          {{if .IsActive}}
+            <span class="c-badge c-badge--success">Active</span>
+          {{else}}
+            <span class="c-badge c-badge--neutral">Inactive</span>
+          {{end}}
+        </td>
+        <td class="c-table__actions">
+          <div class="c-action-menu">
+            <button class="c-action-menu__trigger" aria-expanded="false" aria-haspopup="true" aria-label="Actions for {{.Town}}">
+              <img class="c-icon c-icon--md" src="/assets/icons/more-horizontal.svg" alt="">
+            </button>
+            <ul class="c-action-menu__dropdown" hidden role="menu">
+              <li role="none">
+                <a class="c-action-menu__item" href="/admin/stores/{{.ID}}/edit" role="menuitem">
+                  <img class="c-action-menu__icon c-icon" src="/assets/icons/pencil.svg" alt="" aria-hidden="true">
+                  Edit
+                </a>
+              </li>
+              <li role="none">
+                <form method="POST" action="/admin/stores/{{.ID}}/toggle">
+                  <input type="hidden" name="_csrf" value="{{$.CSRFToken}}">
+                  <button type="submit" class="c-action-menu__item c-action-menu__item--warning" role="menuitem">
+                    <img class="c-action-menu__icon c-icon" src="/assets/icons/{{if .IsActive}}toggle-left.svg{{else}}toggle-right.svg{{end}}" alt="" aria-hidden="true">
+                    {{if .IsActive}}Deactivate{{else}}Activate{{end}}
+                  </button>
+                </form>
+              </li>
+              <li role="none">
+                <form method="POST" action="/admin/stores/{{.ID}}/delete">
+                  <input type="hidden" name="_csrf" value="{{$.CSRFToken}}">
+                  <button type="submit" class="c-action-menu__item c-action-menu__item--danger" role="menuitem">
+                    <img class="c-action-menu__icon c-icon" src="/assets/icons/trash-2.svg" alt="" aria-hidden="true">
+                    Delete
+                  </button>
+                </form>
+              </li>
+            </ul>
+          </div>
+        </td>
+      </tr>
+      {{else}}
+      <tr><td class="c-table__empty" colspan="5">No stores found. Create one to get started.</td></tr>
+      {{end}}
+    </tbody>
+  </table>
+</div>
+{{end}}

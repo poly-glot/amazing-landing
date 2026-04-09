@@ -1,0 +1,53 @@
+@layer layout {
+  /* Page canvas */
+  .o-canvas {
+    min-block-size: 100vh;
+    background: var(--clr-canvas);
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Full-screen app shell */
+  .o-app-shell {
+    background: var(--clr-surface);
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    overflow: hidden;
+  }
+
+  /* Body: sidebar + content flex row */
+  .o-body {
+    display: flex;
+    flex: 1;
+    min-block-size: 0;
+  }
+
+  /* Main content area */
+  .o-content {
+    flex: 1;
+    padding: var(--sp-6) var(--sp-8);
+    min-inline-size: 0;
+  }
+
+  /* Login / full-screen layouts */
+  .o-fullscreen {
+    min-block-size: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: var(--clr-canvas);
+  }
+  /* Stack alerts above card, centred */
+  .o-fullscreen__stack {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--sp-4);
+    inline-size: min(440px, 90vw);
+  }
+  .o-fullscreen__stack .c-alert {
+    inline-size: 100%;
+  }
+}

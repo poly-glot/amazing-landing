@@ -1,0 +1,32 @@
+/* indicator.css */
+
+.indicator,.section-main:before {
+  right:0;
+  top:0;
+  position:absolute;
+}
+
+.indicator {
+  font-size:0;
+  line-height:0;
+  visibility:visible;
+}
+
+.ind-col {
+  background-color:#fff;
+  width:20px;
+  height:2px;
+  margin-right:2px;
+  display:inline-block;
+  opacity:.4;
+  filter:alpha(opacity=40);
+  -webkit-transition:.3s ease-in-out height,.3s ease-in-out opacity;
+  -o-transition:.3s ease-in-out height,.3s ease-in-out opacity;
+  transition:.3s ease-in-out height,.3s ease-in-out opacity;
+}
+
+.ind-col-active {
+  height:4px;
+  opacity:1;
+  filter:alpha(opacity=100);
+}

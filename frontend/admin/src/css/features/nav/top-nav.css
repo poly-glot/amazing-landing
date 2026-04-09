@@ -1,0 +1,83 @@
+@layer components {
+  .c-top-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    block-size: var(--topnav-height);
+    padding-inline: var(--sp-6);
+    background: var(--clr-surface);
+    border-block-end: 1px solid var(--clr-border);
+    position: sticky;
+    inset-block-start: 0;
+    z-index: 100;
+  }
+
+  .c-top-nav__brand {
+    display: flex;
+    align-items: baseline;
+    gap: var(--sp-2);
+    text-decoration: none;
+    color: var(--clr-brand-dark);
+  }
+  .c-top-nav__brand:hover { text-decoration: none; color: var(--clr-brand-dark); }
+
+  .c-top-nav__brand-name {
+    font-size: var(--text-lg);
+    font-weight: var(--fw-bold);
+    letter-spacing: .02em;
+  }
+  .c-top-nav__brand-divider {
+    color: var(--clr-gray-400);
+    font-weight: var(--fw-regular);
+  }
+  .c-top-nav__brand-portal {
+    font-size: var(--text-sm);
+    font-weight: var(--fw-regular);
+    color: var(--clr-text-muted);
+  }
+
+  .c-top-nav__actions {
+    display: flex;
+    align-items: center;
+    gap: var(--sp-2);
+  }
+
+  .c-top-nav__btn {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--sp-1);
+    padding: var(--sp-2) var(--sp-3);
+    border-radius: var(--radius-md);
+    border: none;
+    background: transparent;
+    color: var(--clr-text-secondary);
+    cursor: pointer;
+    font-size: var(--text-sm);
+    transition: background var(--dur-fast) var(--ease), color var(--dur-fast) var(--ease);
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .c-top-nav__btn:hover { background: var(--clr-gray-100); color: var(--clr-text-primary); text-decoration: none; }
+
+  .c-top-nav__btn--signout:hover {
+    background: var(--clr-error-bg);
+    color: var(--clr-error);
+  }
+
+  /* Avatar circle */
+  .c-avatar {
+    inline-size: 32px;
+    block-size: 32px;
+    border-radius: var(--radius-full);
+    background: var(--clr-brand-dark);
+    color: var(--clr-text-inverse);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--text-xs);
+    font-weight: var(--fw-semibold);
+    letter-spacing: .02em;
+    flex-shrink: 0;
+    margin-inline-start: var(--sp-2);
+  }
+}

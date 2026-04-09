@@ -1,0 +1,129 @@
+/* ==========================================================================
+   ANIMATIONS
+   ========================================================================== */
+
+.absolute-bg-container.animating .absolute-bg.bg-blue:after,.absolute-bg-container.animating .absolute-bg.bg-red:after,.absolute-bg-container.animating .absolute-bg.bg-sky:after,.absolute-bg-container.animating .absolute-bg.bg-yellow:after {
+  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#1e5799', endColorstr='#fff9f9', GradientType=1);
+}
+
+@-webkit-keyframes fade {
+  to {
+    opacity:.3;
+  }
+}
+
+@keyframes fade {
+  to {
+    opacity:.3;
+  }
+}
+
+@-webkit-keyframes moveFromRightFade {
+  from {
+    opacity:.3;
+    -webkit-transform:translateX(100%);
+  }
+}
+
+@keyframes moveFromRightFade {
+  from {
+    opacity:.3;
+    transform:translateX(100%);
+  }
+}
+
+.absolute-bg-container.animating .absolute-bg:after {
+  content:" ";
+  position:absolute;
+  right:0;
+  top:0;
+  height:100%;
+  width:50px;
+}
+
+.absolute-bg-container.animating .absolute-bg.bg-yellow:after {
+  background:-moz-linear-gradient(left,#1e5799 0,#2989d8 0,#ffc913 0,#fff9f9 100%);
+  background:-webkit-gradient(linear,left top,right top,color-stop(0,#1e5799),color-stop(0,#2989d8),color-stop(0,#ffc913),color-stop(100%,#fff9f9));
+  background:-webkit-linear-gradient(left,#1e5799 0,#2989d8 0,#ffc913 0,#fff9f9 100%);
+  background:-o-linear-gradient(left,#1e5799 0,#2989d8 0,#ffc913 0,#fff9f9 100%);
+  background:-ms-linear-gradient(left,#1e5799 0,#2989d8 0,#ffc913 0,#fff9f9 100%);
+  background:linear-gradient(to right,#1e5799 0,#2989d8 0,#ffc913 0,#fff9f9 100%);
+}
+
+.absolute-bg-container.animating .absolute-bg.bg-red:after {
+  background:-moz-linear-gradient(left,#1e5799 0,#2989d8 0,#c21954 0,#fff9f9 100%);
+  background:-webkit-gradient(linear,left top,right top,color-stop(0,#1e5799),color-stop(0,#2989d8),color-stop(0,#c21954),color-stop(100%,#fff9f9));
+  background:-webkit-linear-gradient(left,#1e5799 0,#2989d8 0,#c21954 0,#fff9f9 100%);
+  background:-o-linear-gradient(left,#1e5799 0,#2989d8 0,#c21954 0,#fff9f9 100%);
+  background:-ms-linear-gradient(left,#1e5799 0,#2989d8 0,#c21954 0,#fff9f9 100%);
+  background:linear-gradient(to right,#1e5799 0,#2989d8 0,#c21954 0,#fff9f9 100%);
+}
+
+.absolute-bg-container.animating .absolute-bg.bg-blue:after {
+  background:-moz-linear-gradient(left,#1e5799 0,#2989d8 0,#032c7b 0,#fff9f9 100%);
+  background:-webkit-gradient(linear,left top,right top,color-stop(0,#1e5799),color-stop(0,#2989d8),color-stop(0,#032c7b),color-stop(100%,#fff9f9));
+  background:-webkit-linear-gradient(left,#1e5799 0,#2989d8 0,#032c7b 0,#fff9f9 100%);
+  background:-o-linear-gradient(left,#1e5799 0,#2989d8 0,#032c7b 0,#fff9f9 100%);
+  background:-ms-linear-gradient(left,#1e5799 0,#2989d8 0,#032c7b 0,#fff9f9 100%);
+  background:linear-gradient(to right,#1e5799 0,#2989d8 0,#032c7b 0,#fff9f9 100%);
+}
+
+.absolute-bg-container.animating .absolute-bg.bg-sky:after {
+  background:-moz-linear-gradient(left,#1e5799 0,#2989d8 0,#2dafc7 0,#fff9f9 100%);
+  background:-webkit-gradient(linear,left top,right top,color-stop(0,#1e5799),color-stop(0,#2989d8),color-stop(0,#2dafc7),color-stop(100%,#fff9f9));
+  background:-webkit-linear-gradient(left,#1e5799 0,#2989d8 0,#2dafc7 0,#fff9f9 100%);
+  background:-o-linear-gradient(left,#1e5799 0,#2989d8 0,#2dafc7 0,#fff9f9 100%);
+  background:-ms-linear-gradient(left,#1e5799 0,#2989d8 0,#2dafc7 0,#fff9f9 100%);
+  background:linear-gradient(to right,#1e5799 0,#2989d8 0,#2dafc7 0,#fff9f9 100%);
+}
+
+@-webkit-keyframes load3 {
+  0% {
+    transform:rotate(0);
+  }
+  100% {
+    transform:rotate(360deg);
+  }
+}
+
+@keyframes load3 {
+  0% {
+    transform:rotate(0);
+  }
+  100% {
+    transform:rotate(360deg);
+  }
+}
+
+/*!
+Video.js Default Styles (http://videojs.com)
+Version 4.12.13
+Create your own skin at http://designer.videojs.com
+*/
+
+@-moz-keyframes spin {
+  0% {
+    -moz-transform:rotate(0);
+  }
+  100% {
+    -moz-transform:rotate(359deg);
+  }
+}
+
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform:rotate(0);
+  }
+  100% {
+    -webkit-transform:rotate(359deg);
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform:rotate(0);
+  }
+  100% {
+    transform:rotate(359deg);
+  }
+}

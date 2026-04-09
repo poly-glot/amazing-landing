@@ -1,0 +1,53 @@
+{{define "admin/submission-detail.html"}}{{template "layout.html" .}}{{end}}
+{{define "content"}}
+
+<nav class="c-breadcrumb" aria-label="Breadcrumb">
+  <a class="c-breadcrumb__link" href="/admin">Home</a>
+  <img class="c-breadcrumb__sep c-icon" src="/assets/icons/chevron-right.svg" alt="" aria-hidden="true">
+  <a class="c-breadcrumb__link" href="/admin/submissions">Submissions</a>
+  <img class="c-breadcrumb__sep c-icon" src="/assets/icons/chevron-right.svg" alt="" aria-hidden="true">
+  <span class="c-breadcrumb__current">Submission Details</span>
+</nav>
+
+<div class="c-page-header">
+  <h1 class="c-page-title">Submission Details</h1>
+</div>
+
+<div class="c-panel" style="margin-block-end:var(--sp-6)">
+  <div class="c-panel__header">
+    <h2 class="c-panel__title">Respondent Information</h2>
+  </div>
+  <div class="c-panel__body">
+    <dl class="c-dl">
+      <dt>Name</dt>
+      <dd>{{.Submission.Firstname}} {{.Submission.Lastname}}</dd>
+      <dt>Email</dt>
+      <dd><a href="mailto:{{.Submission.Email}}">{{.Submission.Email}}</a></dd>
+      <dt>Product</dt>
+      <dd>{{.Submission.Product}}</dd>
+      <dt>Store ID</dt>
+      <dd>{{.Submission.StoreID}}</dd>
+      <dt>Promotion</dt>
+      <dd>{{.Submission.PromotionSlug}}</dd>
+      <dt>Submitted</dt>
+      <dd>{{.Submission.CreatedAt.Format "January 02, 2006 at 3:04 PM"}}</dd>
+      <dt>Age / Skin / Concerns</dt>
+      <dd>{{.Submission.Age}} &middot; {{.Submission.Skin}} &middot; {{.Submission.Concern1}}, {{.Submission.Concern2}}</dd>
+    </dl>
+  </div>
+</div>
+
+<div class="c-panel">
+  <div class="c-panel__header">
+    <h2 class="c-panel__title">Email Status</h2>
+  </div>
+  <div class="c-panel__body">
+    {{if .Submission.EmailSentAt}}
+    <p>Email sent on {{.Submission.EmailSentAt.Format "January 02, 2006 at 3:04 PM"}}</p>
+    <a href="/admin/submissions/{{.Submission.ID}}/email-preview" target="_blank" class="c-button c-button--secondary c-button--small">Preview Email</a>
+    {{else}}
+    <p class="t-muted">The confirmation email has not been dispatched.</p>
+    {{end}}
+  </div>
+</div>
+{{end}}

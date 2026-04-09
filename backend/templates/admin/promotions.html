@@ -1,0 +1,71 @@
+{{define "admin/promotions.html"}}{{template "layout.html" .}}{{end}}
+{{define "content"}}
+
+<nav class="c-breadcrumb" aria-label="Breadcrumb">
+  <a class="c-breadcrumb__link" href="/admin">Home</a>
+  <img class="c-breadcrumb__sep c-icon" src="/assets/icons/chevron-right.svg" alt="" aria-hidden="true">
+  <span class="c-breadcrumb__current">Promotions</span>
+</nav>
+
+<div class="c-page-header">
+  <h1 class="c-page-title">Promotions</h1>
+  <a class="c-button c-button--primary" href="/admin/promotions/new">
+    <img class="c-icon c-icon--sm" src="/assets/icons/plus.svg" alt="" aria-hidden="true">
+    New Promotion
+  </a>
+</div>
+
+<div class="c-table-wrap">
+  <table class="c-table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Slug</th>
+        <th>Status</th>
+        <th class="c-table__actions"></th>
+      </tr>
+    </thead>
+    <tbody>
+      {{range .Promotions}}
+      <tr>
+        <td><strong>{{.Name}}</strong></td>
+        <td class="t-secondary">{{.Slug}}</td>
+        <td>
+          {{if .Active}}
+            <span class="c-badge c-badge--success">Active</span>
+          {{else}}
+            <span class="c-badge c-badge--neutral">Inactive</span>
+          {{end}}
+        </td>
+        <td class="c-table__actions">
+          <div class="c-action-menu">
+            <button class="c-action-menu__trigger" aria-expanded="false" aria-haspopup="true" aria-label="Actions for {{.Name}}">
+              <img class="c-icon c-icon--md" src="/assets/icons/more-horizontal.svg" alt="">
+            </button>
+            <ul class="c-action-menu__dropdown" hidden role="menu">
+              <li role="none">
+                <a class="c-action-menu__item" href="/admin/promotions/{{.ID}}/edit" role="menuitem">
+                  <img class="c-action-menu__icon c-icon" src="/assets/icons/pencil.svg" alt="" aria-hidden="true">
+                  Edit
+                </a>
+              </li>
+              <li role="none">
+                <form method="POST" action="/admin/promotions/{{.ID}}/delete">
+                  <input type="hidden" name="_csrf" value="{{$.CSRFToken}}">
+                  <button type="submit" class="c-action-menu__item c-action-menu__item--danger" role="menuitem">
+                    <img class="c-action-menu__icon c-icon" src="/assets/icons/trash-2.svg" alt="" aria-hidden="true">
+                    Delete
+                  </button>
+                </form>
+              </li>
+            </ul>
+          </div>
+        </td>
+      </tr>
+      {{else}}
+      <tr><td class="c-table__empty" colspan="4">No promotions found. Create one to get started.</td></tr>
+      {{end}}
+    </tbody>
+  </table>
+</div>
+{{end}}

@@ -1,0 +1,80 @@
+/* results.css */
+
+.results-container .indicator {
+  right:10px;
+}
+
+#page-questions-voucher .results-container {
+  margin-top:0;
+  margin-bottom:0;
+  height:40px;
+}
+
+.store-selector {
+  margin:40px 0;
+}
+
+.store-selector .store-items {
+  margin-bottom:10px;
+  padding-bottom:35px;
+  overflow:hidden;
+}
+
+.store-selector .store-item {
+  position:relative;
+}
+
+.store-selector .store-name {
+  display:block;
+  max-width:100%;
+  overflow:hidden;
+  max-height:1.2em;
+}
+
+.store-selector .store-address {
+  position:relative;
+  display:block;
+  margin-top:-14px;
+}
+
+.store-selector .store-image {
+  display:block;
+  background:#fff;
+  border:5px solid #fff;
+  -webkit-box-shadow:4.5px 3.87px 5px 0 rgba(0,0,0,.22);
+  box-shadow:4.5px 3.87px 5px 0 rgba(0,0,0,.22);
+  width:auto;
+  max-width:100%;
+  margin-bottom:10px;
+}
+
+.store-selector .store-image img {
+  max-width:100%;
+  height:auto;
+}
+
+.store-selector .map-link {
+  display:block;
+  padding-left:35px;
+  background:url(../../../../assets/images/map-view.png) left center no-repeat;
+}
+
+.results-container {
+  max-width:375px;
+  margin:25px auto;
+  position:relative;
+  padding-bottom:40px;
+}
+
+@media screen and (max-width:375px) {
+  .results-container {
+    padding-left:10px;
+    padding-right:10px;
+  }
+}
+
+@media screen and (min-width:540px) {
+  .results-container {
+    max-width:540px;
+  }
+}

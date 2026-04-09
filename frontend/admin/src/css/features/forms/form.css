@@ -1,0 +1,68 @@
+@layer components {
+  .c-form { max-inline-size: 640px; }
+
+  .c-form__field {
+    margin-block-end: var(--sp-5);
+  }
+
+  .c-form__label {
+    display: block;
+    font-size: var(--text-sm);
+    font-weight: var(--fw-medium);
+    color: var(--clr-text-primary);
+    margin-block-end: var(--sp-1);
+  }
+
+  .c-form__input,
+  .c-form__select,
+  .c-form__textarea {
+    display: block;
+    width: 100%;
+    padding: var(--sp-2) var(--sp-3);
+    border: 1.5px solid var(--clr-border-strong);
+    border-radius: var(--radius-md);
+    font-size: var(--text-base);
+    color: var(--clr-text-primary);
+    background: var(--clr-surface);
+    transition:
+      border-color var(--dur-fast) var(--ease),
+      box-shadow var(--dur-fast) var(--ease);
+  }
+  .c-form__input:focus,
+  .c-form__select:focus,
+  .c-form__textarea:focus {
+    outline: none;
+    border-color: var(--clr-brand-gold);
+    box-shadow: 0 0 0 3px rgb(200 169 110 / .2);
+  }
+
+  .c-form__hint {
+    font-size: var(--text-xs);
+    color: var(--clr-text-muted);
+    margin-block-start: var(--sp-1);
+  }
+
+  .c-form__actions {
+    display: flex;
+    gap: var(--sp-3);
+    margin-block-start: var(--sp-6);
+    flex-wrap: wrap;
+  }
+
+  /* Concern-product mapping rows (questions editor) */
+  .c-mapping-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr auto;
+    gap: var(--sp-3);
+    align-items: center;
+    margin-block-end: var(--sp-3);
+  }
+  .c-mapping-row__remove {
+    inline-size: 32px; block-size: 32px;
+    display: flex; align-items: center; justify-content: center;
+    border: 1px solid var(--clr-border); border-radius: var(--radius-sm);
+    background: transparent; cursor: pointer; color: var(--clr-error);
+    transition: background var(--dur-fast) var(--ease);
+  }
+  .c-mapping-row__remove:hover { background: var(--clr-error-bg); }
+}

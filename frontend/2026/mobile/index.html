@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Your Free 7-Day Skincare Trial! Answer 3 simple questions to discover the perfect new moisturiser to transform your skin</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<link href='https://fonts.googleapis.com/css?family=Lato:100,400,300,700' rel='stylesheet' type='text/css'>
+	<link rel="icon" href="/favicon.ico" type="image/x-icon" />
+</head>
+<body>
+	<div id="fb-root"></div>
+	<!--@include: ./partials/svg-symbols.html -->
+
+	<div class="loader-container" style="display: block;" id="main-loader">
+		<div class="loader">Loading...</div>
+	</div>
+
+	<div class="site-wrapper">
+		<main class="site-content">
+			<div class="pages-container">
+				<!--@include: ./partials/pages/landing.html -->
+				<!--@include: ./partials/pages/questions-age.html -->
+				<!--@include: ./partials/pages/questions-skin.html -->
+				<!--@include: ./partials/pages/questions-concern.html -->
+				<!--@include: ./partials/pages/results.html -->
+				<!--@include: ./partials/pages/voucher.html -->
+			</div>
+		</main>
+	</div>
+
+	<div class="modal fade text-black light" id="modal-terms">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<h2 class="modal-title no-margin light text-dark-brown">Terms &amp; Conditions</h2>
+				</div>
+				<div class="modal-body">
+					<p>Free Sample offer valid in the 86 participating UK and Ireland Azadi-owned boutiques only.
+						Offer not valid online, at wholesale partners such as department stores, airports or AZADI
+						outlet boutiques (Bicester, Portsmouth, Cheshire Oaks) and Trentham Gardens boutique.
+						One free sample per customer only. Sign-up for our VIP programme and presentation of an electronic
+						or printed voucher is mandatory when collecting a sample. This offer is non-transferable and can
+						only be redeemed by the owner of the email account registered. Sample may vary depending on
+						stock availability.</p>
+
+					<p>AZADI reserve the right to substitute this sample with an alternative sample.</p>
+
+					<p>Offer available to UK and Ireland residents of at least 18 years of age only,
+						valid until 2nd November 2015 or while stocks last, whichever is earlier.
+						To redeem the offer, valid email invite must be presented to boutique staff.
+						AZADI does not accept responsibility for network, computer, hardware or software
+						failures of any kind, which may restrict or delay the sending or receipt of your voucher.
+						Any person found to be redeeming more than once by registering with multiple
+						email accounts will be deemed ineligible. Offer not open to AZADI staff.
+						AZADI reserves the right to withdraw or change any part of
+						this offer at any time.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="modal fade text-black" id="modal-cookies">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+					<h4 class="modal-title">Cookie Policy</h4>
+				</div>
+				<div class="modal-body">
+					<p>Here will be Cookie Policy</p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script type="text/javascript">
+		var basehost            = '';
+		var baseurl             = '/2026/mobile/';
+		var firebase_url        = '';
+		var baseurl_api         = '/';
+		var main_promotion_slug = 'default';
+		var pdf_link            = '#';
+		var tracking_url        = '/2026/mobile/default/';
+
+		var MasterTmsUdo        = {};
+	</script>
+
+	<script type="module" src="src/main.js"></script>
+</body>
+</html>

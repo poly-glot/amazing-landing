@@ -1,0 +1,35 @@
+%%{init: {'theme': 'base', 'themeVariables': {'primaryColor': '#ffffff', 'primaryTextColor': '#000000', 'primaryBorderColor': '#000000', 'lineColor': '#000000', 'actorBorder': '#000000', 'actorBkg': '#ffffff', 'actorTextColor': '#000000', 'signalColor': '#000000', 'signalTextColor': '#000000', 'noteBkgColor': '#f5f5f5', 'noteBorderColor': '#000000', 'noteTextColor': '#000000', 'activationBkgColor': '#f5f5f5', 'activationBorderColor': '#000000', 'fontFamily': 'Arial', 'fontSize': '14px'}, 'sequence': {'messageLineWidth': 3, 'actorBorderWidth': 3}, 'themeCSS': '.messageLine0, .messageLine1 { stroke-width: 3px !important; } .actor { stroke-width: 2px !important; } .note { stroke-width: 2px !important; } .loopLine { stroke-width: 2px !important; }'}}%%
+
+sequenceDiagram
+    participant B as Browser
+    participant S as Go Server
+    participant DS as Datastore
+
+    Note over B,S: Quiz Load
+    B->>S: GET /api/v1/survey/promotion/{slug}
+    S->>DS: FindBySlug
+    DS-->>S: Promotion config
+    S-->>B: {active, name, slug}
+    B->>S: GET /api/v1/survey/questions
+    S->>DS: FetchQuestionConfig
+    DS-->>S: Age groups + product mappings
+    S-->>B: Questions config
+    B->>S: GET /api/v1/survey/stores
+    S->>DS: ListActiveStores
+    DS-->>S: Store list
+    S-->>B: {stores[]}
+
+    Note over B,S: Quiz Completion
+    B->>S: POST /api/v1/survey/customer
+    S->>DS: SaveSubmission
+    DS-->>S: Submission ID
+    S-->>B: {submissionId}
+    B->>S: POST /api/v1/survey/updatestore
+    S->>DS: UpdateSubmission store
+    S-->>B: 200 OK
+
+    Note over B,S: Email Dispatch
+    B->>S: POST /api/v1/survey/email
+    S->>DS: RenderAndSave email HTML
+    S->>DS: SaveEmailRecord
+    S-->>B: 200 OK

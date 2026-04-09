@@ -1,0 +1,98 @@
+{{define "admin/questions.html"}}{{template "layout.html" .}}{{end}}
+{{define "content"}}
+
+<nav class="c-breadcrumb" aria-label="Breadcrumb">
+  <a class="c-breadcrumb__link" href="/admin">Home</a>
+  <img class="c-breadcrumb__sep c-icon" src="/assets/icons/chevron-right.svg" alt="" aria-hidden="true">
+  <span class="c-breadcrumb__current">Questions</span>
+</nav>
+
+<div class="c-page-header">
+  <div>
+    <h1 class="c-page-title">Question Configuration</h1>
+    <p class="c-page-subtitle">Manage the quiz flow: age groups, skin types, concerns, and product recommendations.</p>
+  </div>
+  <div class="c-page-header__actions">
+    <a href="/admin/questions/import" class="c-button c-button--outline">
+      <img class="c-icon c-icon--sm" src="/assets/icons/upload.svg" alt="" aria-hidden="true">
+      Import JSON
+    </a>
+    {{if .HasConfig}}
+    <a href="/admin/questions/export" class="c-button c-button--outline">
+      <img class="c-icon c-icon--sm" src="/assets/icons/download.svg" alt="" aria-hidden="true">
+      Export JSON
+    </a>
+    {{end}}
+    <a href="/admin/questions/new" class="c-button c-button--primary">
+      <img class="c-icon c-icon--sm" src="/assets/icons/plus.svg" alt="" aria-hidden="true">
+      New Age Group
+    </a>
+  </div>
+</div>
+
+{{if .HasConfig}}
+<div class="c-table-wrap">
+  <table class="c-table">
+    <thead>
+      <tr>
+        <th>Age Group</th>
+        <th>Skin Types</th>
+        <th>Concerns</th>
+        <th>Mapped Brands</th>
+        <th>Priority</th>
+        <th class="c-table__actions"></th>
+      </tr>
+    </thead>
+    <tbody>
+      {{range .AgeGroups}}
+      <tr>
+        <td><strong>{{.Name}}</strong></td>
+        <td class="t-secondary">{{.SkinTypes}}</td>
+        <td>{{.ConcernCount}} concerns</td>
+        <td>
+          <div class="c-tags">{{range .Brands}}<span class="c-tag">{{.}}</span>{{end}}</div>
+        </td>
+        <td class="t-secondary t-xs">{{range $i, $p := .Priority}}{{if $i}}, {{end}}{{$p}}{{end}}</td>
+        <td class="c-table__actions">
+          <div class="c-action-menu">
+            <button class="c-action-menu__trigger" aria-expanded="false" aria-haspopup="true" aria-label="Actions for {{.Name}}">
+              <img class="c-icon c-icon--md" src="/assets/icons/more-horizontal.svg" alt="">
+            </button>
+            <ul class="c-action-menu__dropdown" hidden role="menu">
+              <li role="none">
+                <a class="c-action-menu__item" href="/admin/questions/{{.Name}}/edit" role="menuitem">
+                  <img class="c-action-menu__icon c-icon" src="/assets/icons/pencil.svg" alt="" aria-hidden="true">
+                  Edit
+                </a>
+              </li>
+              <li role="none">
+                <form method="POST" action="/admin/questions/{{.Name}}/delete">
+                  <input type="hidden" name="_csrf" value="{{$.CSRFToken}}">
+                  <button type="submit" class="c-action-menu__item c-action-menu__item--danger" role="menuitem">
+                    <img class="c-action-menu__icon c-icon" src="/assets/icons/trash-2.svg" alt="" aria-hidden="true">
+                    Delete
+                  </button>
+                </form>
+              </li>
+            </ul>
+          </div>
+        </td>
+      </tr>
+      {{end}}
+    </tbody>
+  </table>
+</div>
+
+<div class="c-section">
+  <p class="c-section__title">Generated JSON Preview</p>
+  <div class="c-code">{{.PreviewJSON}}</div>
+</div>
+
+{{else}}
+<div class="c-panel">
+  <div class="c-panel__body" style="text-align:center">
+    <p class="t-muted">No question configuration yet. Create your first age group or import a JSON file.</p>
+  </div>
+</div>
+{{end}}
+{{end}}

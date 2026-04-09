@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Your Free 7-Day Skincare Trial! Answer 3 simple questions to discover the perfect new moisturiser to transform your skin</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+	<link href='https://fonts.googleapis.com/css?family=Lato:400,300,100,700' rel='stylesheet' type='text/css'>
+	<!-- CSS bundled via src/styles/components/ (imported in src/main.js) -->
+	<link rel="icon" href="/favicon.ico" type="image/x-icon" />
+
+	<!-- Preload CSS background images -->
+	<link rel="preload" as="image" href="assets/images/questions-bg.jpg">
+	<link rel="preload" as="image" href="assets/images/title-1.png">
+	<link rel="preload" as="image" href="assets/images/title-2.png">
+	<link rel="preload" as="image" href="assets/images/title-3.png">
+	<link rel="preload" as="image" href="assets/images/form-title.png">
+	<link rel="preload" as="image" href="assets/images/Guide.png">
+	<link rel="preload" as="image" href="assets/images/close.png">
+	<link rel="preload" as="image" href="assets/images/p_header.png">
+	<link rel="preload" as="image" href="assets/images/p_body.jpg">
+	<link rel="preload" as="image" href="assets/images/p_footer.png">
+	<link rel="preload" as="image" href="assets/images/map-view.png">
+	<link rel="preload" as="image" href="assets/images/store-bg.jpg">
+</head>
+<body>
+	<div id="fb-root"></div>
+
+	<!--@include: ./partials/svg-symbols.html -->
+
+	<div class="loader-container" style="display: block;" id="main-loader">
+		<div class="loader">Loading...</div>
+	</div>
+
+	<div class="site-wrapper">
+
+		<main class="site-content">
+			<div class="pages-container">
+
+				<header class="page-header">
+					<div id="main-logo-container">
+							<svg class="site-logo" id="main-logo">
+								<use xlink:href="#logo"></use>
+							</svg>
+					</div>
+
+					<div class="indicator">
+						<div class="ind-col"></div>
+						<div class="ind-col "></div>
+						<div class="ind-col "></div>
+						<div class="ind-col "></div>
+						<div class="ind-col "></div>
+					</div>
+				</header>
+
+				<!--@include: ./partials/pages/landing.html -->
+
+				<!--@include: ./partials/pages/questions.html -->
+
+				<!--@include: ./partials/pages/results.html -->
+
+				<!--@include: ./partials/pages/voucher.html -->
+
+			</div>
+		</main>
+
+		<footer class="site-footer">
+
+		</footer>
+	</div>
+
+
+	<!--@include: ./partials/modals/terms.html -->
+
+	<!--@include: ./partials/modals/device-notices.html -->
+
+	<script type="text/javascript">
+		var basehost            = '';
+		var baseurl             = '/2026/desktop/';
+		var firebase_url        = '';
+		var baseurl_api         = '/';
+		var main_promotion_slug = 'default';
+		var pdf_link            = '#';
+		var tracking_url        = '/2026/desktop/default/';
+
+		var MasterTmsUdo        = {};
+	</script>
+
+
+	<script type="module" src="src/main.js"></script>
+
+</body>
+</html>

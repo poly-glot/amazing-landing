@@ -1,0 +1,86 @@
+/* landing.css */
+
+.landing-introduction,.landing-next {
+  width:100%;
+  z-index:110;
+  padding:0 30px;
+  text-align:center;
+  left:0;
+  position:absolute;
+}
+
+.landing-introduction {
+  top:60px;
+}
+
+.landing-next {
+  top:54%;
+}
+
+@media screen and (max-width:380px) {
+  .landing-next .large {
+    font-size:16px;
+  }
+}
+
+@media screen and (max-width:320px) {
+  .landing-next .large {
+    font-size:14px;
+  }
+}
+
+.landing-item {
+  position:absolute;
+  width:50%;
+  height:52%;
+  z-index:100;
+}
+
+.landing-item .landing-image {
+  position:absolute;
+  bottom:0;
+  text-align:center;
+  left:0;
+  width:100%;
+  overflow:hidden;
+}
+
+.landing-item .landing-image img {
+  margin-left:auto;
+  margin-right:auto;
+  max-height:300px;
+  width:auto;
+  margin-bottom:-30px;
+}
+
+@media screen and (max-width:380px) {
+  .landing-item .landing-image img {
+    margin-bottom:-20px;
+  }
+}
+
+.landing-item.bg-yellow {
+  left:0;
+  top:0;
+}
+
+.landing-item.bg-sky {
+  right:0;
+  top:0;
+}
+
+.landing-item.bg-red {
+  left:0;
+  top:52%;
+}
+
+.landing-item.bg-blue {
+  right:0;
+  top:52%;
+}
+
+.landing-heading {
+  margin-left:auto;
+  margin-right:auto;
+  max-width:400px;
+}

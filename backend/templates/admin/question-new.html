@@ -1,0 +1,33 @@
+{{define "admin/question-new.html"}}{{template "layout.html" .}}{{end}}
+{{define "content"}}
+
+<nav class="c-breadcrumb" aria-label="Breadcrumb">
+  <a class="c-breadcrumb__link" href="/admin">Home</a>
+  <img class="c-breadcrumb__sep c-icon" src="/assets/icons/chevron-right.svg" alt="" aria-hidden="true">
+  <a class="c-breadcrumb__link" href="/admin/questions">Questions</a>
+  <img class="c-breadcrumb__sep c-icon" src="/assets/icons/chevron-right.svg" alt="" aria-hidden="true">
+  <span class="c-breadcrumb__current">New Age Group</span>
+</nav>
+
+<div class="c-page-header">
+  <h1 class="c-page-title">New Age Group</h1>
+</div>
+
+<div class="c-panel">
+  <div class="c-panel__body">
+    <form method="POST" action="/admin/questions/new" class="c-form">
+      <input type="hidden" name="_csrf" value="{{.CSRFToken}}">
+
+      <div class="c-form__field">
+        <label for="age_name" class="c-form__label">Age group name</label>
+        <input type="text" id="age_name" name="age_name" required class="c-form__input" placeholder="e.g. 25-35, Under 25, 55+">
+      </div>
+
+      <div class="c-form__actions">
+        <button type="submit" class="c-button c-button--primary">Create &amp; configure</button>
+        <a href="/admin/questions" class="c-button c-button--secondary">Cancel</a>
+      </div>
+    </form>
+  </div>
+</div>
+{{end}}

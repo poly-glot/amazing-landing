@@ -1,0 +1,20 @@
+/* share.css */
+
+#page-questions-voucher .share-this {
+  position:absolute;
+  right:0;
+}
+
+.share-this-item {
+  display:inline-block;
+  margin-right:10px;
+}
+
+.share-this-item.last {
+  margin-right:0;
+}
+
+.share-this .social-link {
+  display:inline-block;
+  margin-right:4px;
+}

@@ -1,0 +1,47 @@
+{{define "admin/promotion-form.html"}}{{template "layout.html" .}}{{end}}
+{{define "content"}}
+
+<nav class="c-breadcrumb" aria-label="Breadcrumb">
+  <a class="c-breadcrumb__link" href="/admin">Home</a>
+  <img class="c-breadcrumb__sep c-icon" src="/assets/icons/chevron-right.svg" alt="" aria-hidden="true">
+  <a class="c-breadcrumb__link" href="/admin/promotions">Promotions</a>
+  <img class="c-breadcrumb__sep c-icon" src="/assets/icons/chevron-right.svg" alt="" aria-hidden="true">
+  <span class="c-breadcrumb__current">{{if .Promotion.ID}}Edit Promotion{{else}}New Promotion{{end}}</span>
+</nav>
+
+<div class="c-page-header">
+  <h1 class="c-page-title">{{if .Promotion.ID}}Edit Promotion{{else}}New Promotion{{end}}</h1>
+</div>
+
+<div class="c-panel">
+  <div class="c-panel__body">
+    <form method="POST" action="{{if .Promotion.ID}}/admin/promotions/{{.Promotion.ID}}{{else}}/admin/promotions{{end}}" class="c-form">
+      <input type="hidden" name="_csrf" value="{{.CSRFToken}}">
+
+      <div class="c-form__field">
+        <label for="name" class="c-form__label">Name</label>
+        <input type="text" id="name" name="name" required value="{{.Promotion.Name}}" class="c-form__input" placeholder="e.g. Summer Collection 2026">
+      </div>
+
+      <div class="c-form__field">
+        <label for="slug" class="c-form__label">Slug</label>
+        <input type="text" id="slug" name="slug" required value="{{.Promotion.Slug}}" pattern="[a-z0-9\-]+" class="c-form__input" placeholder="summer-collection-2026">
+        <p class="c-form__hint">Lowercase letters, numbers, and hyphens only. Used in the landing page URL.</p>
+      </div>
+
+      <div class="c-form__field">
+        <label class="c-option">
+          <input type="checkbox" name="active" value="true" {{if .Promotion.Active}}checked{{end}} class="c-option__input">
+          <span class="c-option__label">Active</span>
+        </label>
+        <p class="c-form__hint">Only active promotions are shown on the public landing page.</p>
+      </div>
+
+      <div class="c-form__actions">
+        <button type="submit" class="c-button c-button--primary">{{if .Promotion.ID}}Update Promotion{{else}}Create Promotion{{end}}</button>
+        <a href="/admin/promotions" class="c-button c-button--secondary">Cancel</a>
+      </div>
+    </form>
+  </div>
+</div>
+{{end}}

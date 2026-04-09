@@ -1,0 +1,49 @@
+{{define "fragments/sidebar-nav.html"}}
+<aside class="c-sidebar">
+
+  <div class="c-sidebar__section">
+    <div class="c-sidebar__section-label" aria-hidden="true">Content</div>
+    <a class="c-sidebar__link{{if eq .RequestURI "/admin"}} c-sidebar__link--active{{end}}" href="/admin">
+      <img class="c-icon c-sidebar__icon" src="/assets/icons/layout-dashboard.svg" alt="" aria-hidden="true">
+      <span>Dashboard</span>
+    </a>
+    <a class="c-sidebar__link{{if hasPrefix .RequestURI "/admin/stores"}} c-sidebar__link--active{{end}}" href="/admin/stores">
+      <img class="c-icon c-sidebar__icon" src="/assets/icons/map-pin.svg" alt="" aria-hidden="true">
+      <span>Stores</span>
+    </a>
+    <a class="c-sidebar__link{{if hasPrefix .RequestURI "/admin/promotions"}} c-sidebar__link--active{{end}}" href="/admin/promotions">
+      <img class="c-icon c-sidebar__icon" src="/assets/icons/tag.svg" alt="" aria-hidden="true">
+      <span>Promotions</span>
+    </a>
+  </div>
+
+  <div class="c-sidebar__section">
+    <div class="c-sidebar__section-label" aria-hidden="true">Catalogue</div>
+    <a class="c-sidebar__link{{if hasPrefix .RequestURI "/admin/products"}} c-sidebar__link--active{{end}}" href="/admin/products">
+      <img class="c-icon c-sidebar__icon" src="/assets/icons/package.svg" alt="" aria-hidden="true">
+      <span>Products</span>
+    </a>
+    <a class="c-sidebar__link{{if hasPrefix .RequestURI "/admin/questions"}} c-sidebar__link--active{{end}}" href="/admin/questions">
+      <img class="c-icon c-sidebar__icon" src="/assets/icons/help-circle.svg" alt="" aria-hidden="true">
+      <span>Questions</span>
+    </a>
+  </div>
+
+  <div class="c-sidebar__section">
+    <div class="c-sidebar__section-label" aria-hidden="true">Data</div>
+    <a class="c-sidebar__link{{if hasPrefix .RequestURI "/admin/submissions"}} c-sidebar__link--active{{end}}" href="/admin/submissions">
+      <img class="c-icon c-sidebar__icon" src="/assets/icons/inbox.svg" alt="" aria-hidden="true">
+      <span>Submissions</span>
+    </a>
+  </div>
+
+  <div class="c-sidebar__section">
+    <div class="c-sidebar__section-label" aria-hidden="true">System</div>
+    <a class="c-sidebar__link{{if hasPrefix .RequestURI "/admin/users"}} c-sidebar__link--active{{end}}" href="/admin/users">
+      <img class="c-icon c-sidebar__icon" src="/assets/icons/users.svg" alt="" aria-hidden="true">
+      <span>Users</span>
+    </a>
+  </div>
+
+</aside>
+{{end}}

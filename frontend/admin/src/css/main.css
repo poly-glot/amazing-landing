@@ -1,0 +1,196 @@
+@import './tokens.css';
+@import './reset.css';
+@import './typography.css';
+@import './layout.css';
+@import './features/shared/icon.css';
+@import './features/shared/button.css';
+@import './features/shared/panel.css';
+@import './features/shared/breadcrumb.css';
+@import './features/shared/pagination.css';
+@import './features/nav/top-nav.css';
+@import './features/nav/sidebar.css';
+@import './features/table/data-table.css';
+@import './features/table/action-menu.css';
+@import './features/forms/form.css';
+@import './features/feedback/badge.css';
+@import './features/feedback/alert.css';
+@import './features/dashboard/stat-card.css';
+
+/* Page header */
+@layer components {
+  .c-page-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: var(--sp-4);
+    margin-block-end: var(--sp-6);
+    flex-wrap: wrap;
+  }
+  .c-page-header__actions {
+    display: flex;
+    align-items: center;
+    gap: var(--sp-2);
+  }
+  .c-page-title {
+    font-family: var(--font-serif);
+    font-size: var(--text-2xl);
+    font-weight: var(--fw-regular);
+    color: var(--clr-brand-dark);
+    margin: 0;
+  }
+  .c-page-subtitle {
+    font-size: var(--text-sm);
+    color: var(--clr-text-muted);
+    margin: var(--sp-1) 0 0;
+  }
+}
+
+/* Login page */
+@layer components {
+  .c-login-card {
+    background: var(--clr-surface);
+    border: 1px solid var(--clr-border);
+    border-radius: var(--radius-lg);
+    padding: var(--sp-10) var(--sp-12);
+    inline-size: min(440px, 90vw);
+    box-shadow: var(--shadow-sm);
+  }
+  .c-login-card__logo {
+    font-size: var(--text-xl);
+    font-weight: var(--fw-bold);
+    color: var(--clr-brand-dark);
+    margin-block-end: var(--sp-1);
+    display: block;
+  }
+  .c-login-card__sub {
+    font-size: var(--text-sm);
+    color: var(--clr-text-muted);
+    margin-block-end: var(--sp-8);
+  }
+}
+
+/* Questions editor — mapping table and code preview */
+@layer components {
+  .c-mapping {
+    border: 1px solid var(--clr-border);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    margin-block-end: var(--sp-4);
+  }
+  .c-mapping__row {
+    display: grid;
+    grid-template-columns: 1fr 1fr 40px;
+    gap: 0;
+    border-block-end: 1px solid var(--clr-border);
+  }
+  .c-mapping__row:last-child { border-block-end: none; }
+  .c-mapping__row--header { background: var(--clr-gray-50); }
+  .c-mapping__cell {
+    padding: var(--sp-2) var(--sp-3);
+    font-size: var(--text-sm);
+    display: flex;
+    align-items: center;
+  }
+  .c-mapping__cell--header {
+    font-size: var(--text-xs);
+    font-weight: var(--fw-semibold);
+    text-transform: uppercase;
+    letter-spacing: .04em;
+    color: var(--clr-text-muted);
+  }
+  .c-mapping__cell input,
+  .c-mapping__cell select {
+    width: 100%;
+    border: 1px solid var(--clr-border-strong);
+    border-radius: var(--radius-sm);
+    padding: var(--sp-1) var(--sp-2);
+    font-size: var(--text-sm);
+    background: var(--clr-surface);
+  }
+  .c-mapping__cell input:focus,
+  .c-mapping__cell select:focus {
+    outline: none;
+    border-color: var(--clr-brand-gold);
+    box-shadow: 0 0 0 2px rgb(200 169 110 / .2);
+  }
+  .c-mapping__remove {
+    inline-size: 28px; block-size: 28px;
+    display: flex; align-items: center; justify-content: center;
+    border: 1px solid var(--clr-border); border-radius: var(--radius-sm);
+    background: transparent; cursor: pointer; color: var(--clr-error);
+    font-size: var(--text-base);
+    transition: background var(--dur-fast) var(--ease);
+  }
+  .c-mapping__remove:hover { background: var(--clr-error-bg); }
+
+  /* Section label used in questions editor */
+  .c-section { margin-block-start: var(--sp-4); margin-block-end: var(--sp-6); }
+  .c-section__title {
+    font-size: var(--text-sm);
+    font-weight: var(--fw-semibold);
+    color: var(--clr-text-secondary);
+    text-transform: uppercase;
+    letter-spacing: .06em;
+    margin-block-end: var(--sp-3);
+  }
+
+  /* Code/JSON preview block */
+  .c-code {
+    background: var(--clr-gray-900);
+    color: var(--clr-gray-200);
+    font-family: 'Courier New', monospace;
+    font-size: var(--text-xs);
+    padding: var(--sp-4);
+    border-radius: var(--radius-md);
+    overflow-x: auto;
+    white-space: pre;
+    max-block-size: 400px;
+    overflow-y: auto;
+  }
+
+  /* Tags inside table cells */
+  .c-tags { display: flex; flex-wrap: wrap; gap: var(--sp-1); }
+  .c-tag {
+    display: inline-block;
+    padding: 1px var(--sp-2);
+    background: var(--clr-gray-100);
+    border-radius: var(--radius-full);
+    font-size: var(--text-xs);
+    color: var(--clr-text-secondary);
+  }
+
+  /* Select used in questions form */
+  .c-select {
+    display: block;
+    width: 100%;
+    padding: var(--sp-2) var(--sp-3);
+    border: 1.5px solid var(--clr-border-strong);
+    border-radius: var(--radius-md);
+    font-size: var(--text-base);
+    color: var(--clr-text-primary);
+    background: var(--clr-surface);
+  }
+  .c-select:focus {
+    outline: none;
+    border-color: var(--clr-brand-gold);
+    box-shadow: 0 0 0 3px rgb(200 169 110 / .2);
+  }
+
+  /* Checkbox option */
+  .c-option {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--sp-2);
+    cursor: pointer;
+    font-size: var(--text-sm);
+  }
+  .c-option__input { cursor: pointer; }
+  .c-option__label { font-weight: var(--fw-medium); }
+
+  /* Form row (two column) */
+  .c-form__row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--sp-4);
+  }
+}

@@ -1,0 +1,28 @@
+@layer components {
+  .c-panel {
+    background: var(--clr-surface);
+    border: 1px solid var(--clr-border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+  }
+  .c-panel__body { padding: var(--sp-6); }
+  .c-panel__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--sp-4);
+    padding: var(--sp-4) var(--sp-6);
+    border-block-end: 1px solid var(--clr-border);
+  }
+  .c-panel__title {
+    font-size: var(--text-base);
+    font-weight: var(--fw-semibold);
+    color: var(--clr-brand-dark);
+    margin: 0;
+  }
+
+  /* Definition list inside panel */
+  .c-dl { display: grid; grid-template-columns: minmax(120px, 200px) 1fr; gap: var(--sp-2) var(--sp-4); }
+  .c-dl dt { font-size: var(--text-xs); font-weight: var(--fw-semibold); text-transform: uppercase; letter-spacing: .04em; color: var(--clr-text-muted); padding-block: var(--sp-2); }
+  .c-dl dd { font-size: var(--text-sm); color: var(--clr-text-primary); padding-block: var(--sp-2); border-block-end: 1px solid var(--clr-border); margin: 0; }
+}

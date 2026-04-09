@@ -1,0 +1,149 @@
+{{define "admin/question-edit.html"}}{{template "layout.html" .}}{{end}}
+{{define "content"}}
+
+<nav class="c-breadcrumb" aria-label="Breadcrumb">
+  <a class="c-breadcrumb__link" href="/admin">Home</a>
+  <img class="c-breadcrumb__sep c-icon" src="/assets/icons/chevron-right.svg" alt="" aria-hidden="true">
+  <a class="c-breadcrumb__link" href="/admin/questions">Questions</a>
+  <img class="c-breadcrumb__sep c-icon" src="/assets/icons/chevron-right.svg" alt="" aria-hidden="true">
+  <span class="c-breadcrumb__current">Edit: {{.AgeName}}</span>
+</nav>
+
+<div class="c-page-header">
+  <h1 class="c-page-title">Edit: {{.AgeName}}</h1>
+</div>
+
+<form method="POST" action="/admin/questions/{{.AgeName}}">
+  <input type="hidden" name="_csrf" value="{{.CSRFToken}}">
+
+  <!-- Section 1: Skin types -->
+  <div class="c-section">
+    <p class="c-section__title">Skin types</p>
+    <div class="c-panel">
+      <div class="c-panel__body">
+        <div class="c-form__field" style="margin-block-end:0">
+          <label for="skin_types" class="c-form__label">Available skin types (comma-separated)</label>
+          <input type="text" id="skin_types" name="skin_types" class="c-form__input" value="{{.SkinTypes}}" placeholder="Dry, Normal, Oily/Combination, Mature">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Section 2: Concern → Product mapping -->
+  <div class="c-section">
+    <p class="c-section__title">Concern &rarr; Product Mapping</p>
+    <p class="t-secondary t-small" style="margin-block-end:var(--sp-4)">Each concern maps to a recommended product brand. Users select 2 concerns during the quiz.</p>
+    <div class="c-mapping">
+      <div class="c-mapping__row c-mapping__row--header">
+        <div class="c-mapping__cell c-mapping__cell--header">Concern text</div>
+        <div class="c-mapping__cell c-mapping__cell--header">Product</div>
+        <div class="c-mapping__cell c-mapping__cell--header"></div>
+      </div>
+      {{range .Concerns}}
+      <div class="c-mapping__row">
+        <div class="c-mapping__cell">
+          <input type="text" name="concern_text" value="{{.Concern}}" placeholder="e.g. Fine lines and wrinkles">
+        </div>
+        <div class="c-mapping__cell">
+          <select name="concern_product">
+            <option value="">—</option>
+            {{$current := .Product}}
+            {{range $.Brands}}
+            <option value="{{.}}"{{if eq . $current}} selected{{end}}>{{.}}</option>
+            {{end}}
+          </select>
+        </div>
+        <div class="c-mapping__cell">
+          <button type="button" class="c-mapping__remove" data-remove-row title="Remove">&times;</button>
+        </div>
+      </div>
+      {{end}}
+    </div>
+    <p style="margin-block-start:var(--sp-3)">
+      <button type="button" class="c-button c-button--secondary c-button--small" id="add-concern-btn">+ Add concern</button>
+    </p>
+  </div>
+
+  <!-- Section 3: Priority -->
+  <div class="c-section">
+    <p class="c-section__title">Priority Order (tiebreaker)</p>
+    <p class="t-secondary t-small" style="margin-block-end:var(--sp-4)">When two concerns recommend different products, the higher-priority product wins.</p>
+    <div class="c-panel">
+      <div class="c-panel__body">
+        <div class="c-form__row">
+          {{range $i, $brand := .Brands}}
+          <div class="c-form__field">
+            <label class="c-form__label">Priority {{$i}}</label>
+            <select name="priority" class="c-form__select">
+              <option value="">—</option>
+              {{range $.Brands}}
+              <option value="{{.}}"{{if lt $i (len $.Priority)}}{{if eq . (index $.Priority $i)}} selected{{end}}{{end}}>{{.}}</option>
+              {{end}}
+            </select>
+          </div>
+          {{end}}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="c-form__actions">
+    <button type="submit" class="c-button c-button--primary">Save Age Group</button>
+    <a href="/admin/questions" class="c-button c-button--secondary">Cancel</a>
+  </div>
+</form>
+
+<script nonce="{{.CSPNonce}}">
+{
+  const brands = [{{range $i, $b := .Brands}}{{if $i}},{{end}}"{{$b}}"{{end}}];
+
+  const makeCell = (className, child) => {
+    const cell = document.createElement('div');
+    cell.className = `c-mapping__cell ${className}`.trim();
+    cell.appendChild(child);
+    return cell;
+  };
+
+  const makeSelect = () => {
+    const select = document.createElement('select');
+    select.name = 'concern_product';
+    const blank = new Option('\u2014', '');
+    select.appendChild(blank);
+    brands.forEach(b => select.appendChild(new Option(b, b)));
+    return select;
+  };
+
+  const makeInput = () => {
+    const input = document.createElement('input');
+    input.type = 'text';
+    input.name = 'concern_text';
+    input.placeholder = 'e.g. Dullness/Lack of radiance';
+    return input;
+  };
+
+  const makeRemoveBtn = () => {
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'c-mapping__remove';
+    btn.dataset.removeRow = '';
+    btn.title = 'Remove';
+    btn.textContent = '\u00d7';
+    return btn;
+  };
+
+  document.getElementById('add-concern-btn').addEventListener('click', () => {
+    const mapping = document.querySelector('.c-mapping');
+    const row = document.createElement('div');
+    row.className = 'c-mapping__row';
+    row.append(makeCell('', makeInput()), makeCell('', makeSelect()), makeCell('', makeRemoveBtn()));
+    mapping.appendChild(row);
+  });
+
+  document.addEventListener('click', (e) => {
+    if ('removeRow' in e.target.dataset) {
+      e.target.closest('.c-mapping__row').remove();
+    }
+  });
+}
+</script>
+{{end}}

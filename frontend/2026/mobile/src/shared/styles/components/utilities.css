@@ -1,0 +1,26 @@
+/* utilities.css */
+
+.text-center {
+  text-align:center;
+}
+
+.center-block {
+  display:block;
+}
+
+.pull-right {
+  float:right!important;
+}
+
+.show {
+  display:block!important;
+}
+
+.hidden {
+  display:none!important;
+}
+
+.center-block {
+  margin-left:auto;
+  margin-right:auto;
+}

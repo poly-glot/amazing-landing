@@ -1,0 +1,32 @@
+/* ==========================================================================
+   SHARE
+   ========================================================================== */
+
+.share-this-item {
+  display:inline-block;
+  margin-right:20px;
+  vertical-align:middle;
+  height:50px;
+}
+
+.share-this-item.last {
+  margin-right:0;
+}
+
+.share-this .social-link {
+  display:inline-block;
+  margin-right:4px;
+  margin-top:-4px;
+}
+
+.facebook-icon {
+  width:36px;
+  height:36px;
+  color:#3a5899;
+}
+
+.twitter-icon {
+  width:36px;
+  height:36px;
+  color:#5ba8df;
+}

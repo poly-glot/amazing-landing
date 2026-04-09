@@ -1,0 +1,13 @@
+@layer components {
+  .c-icon {
+    display: inline-block;
+    inline-size: 1em;
+    block-size: 1em;
+    vertical-align: middle;
+    flex-shrink: 0;
+  }
+  .c-icon--xs { inline-size: 12px; block-size: 12px; }
+  .c-icon--sm { inline-size: 14px; block-size: 14px; }
+  .c-icon--md { inline-size: 16px; block-size: 16px; }
+  .c-icon--lg { inline-size: 20px; block-size: 20px; }
+}

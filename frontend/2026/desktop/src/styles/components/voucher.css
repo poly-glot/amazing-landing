@@ -1,0 +1,58 @@
+/* ==========================================================================
+   VOUCHER
+   ========================================================================== */
+
+.page-voucher {
+  background:url('../../../assets/images/store-bg.jpg') center center no-repeat #032d7a;
+  background-size:cover;
+}
+
+@media screen and (max-height:800px) {
+  .page-voucher .m-b-20 {
+    margin-bottom:10px;
+  }
+  .page-voucher .page-header-static {
+    margin-bottom:5px;
+  }
+}
+
+@media screen and (max-width:980px) {
+  .page-voucher .promotion-box {
+    padding-left:5px;
+    padding-right:5px;
+  }
+  .page-voucher .promotion-box .promotion-box-title {
+    font-size:10px;
+  }
+  .page-voucher .promotion-box .promotion-box-title h1 {
+    font-size:20px;
+  }
+}
+
+.page-voucher .full-screen {
+  min-height:calc(100vh - 80px);
+}
+
+.page-voucher .page-footer {
+  padding-bottom:10px;
+}
+
+.page-voucher .final-product {
+  top:-20px;
+}
+
+.page-voucher .page-content {
+  padding-top:0;
+}
+
+@media screen and (max-height:740px) {
+  .page-voucher .promotion-box {
+    padding:25px 30px;
+  }
+  .page-voucher .product-carousel .external-image img {
+    max-height:72px;
+  }
+  .page-voucher .section-inline-title-bordered {
+    margin-bottom:4px;
+  }
+}

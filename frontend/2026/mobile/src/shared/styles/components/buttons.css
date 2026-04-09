@@ -1,0 +1,77 @@
+/* buttons.css */
+
+.form-control {
+  background-image:none;
+}
+
+.btn-content {
+  font-weight:100;
+}
+
+.two-lines-button:hover .btn-content .btn-text {
+  -webkit-transform:translate(0,-40px);
+  -ms-transform:translate(0,-40px);
+  -o-transform:translate(0,-40px);
+  transform:translate(0,-40px);
+}
+
+.two-lines-button:hover .btn-content:before {
+  top:0;
+}
+
+.btn-content {
+  font-size:18px;
+  letter-spacing:.2em;
+  background-color:#fff;
+  color:#000;
+  border:4px solid #fff;
+  text-transform:uppercase;
+  padding:6px;
+  position:relative;
+  overflow:hidden;
+}
+
+.btn-content .btn-text {
+  transform:translate(0,0);
+  -webkit-transition:-webkit-transform .3s ease-out;
+  -moz-transition:-moz-transform .3s ease-out;
+  -o-transition:-o-transform .3s ease-out;
+  transition:transform .3s ease-out;
+}
+
+.btn-content:before {
+  color:#fff;
+  background:#ffc811;
+  content:attr(data-hover);
+  position:absolute;
+  top:60px;
+  left:0;
+  width:100%;
+  height:100%;
+  line-height:33px;
+  -webkit-transition:.3s ease-in-out top;
+  -o-transition:.3s ease-in-out top;
+  transition:.3s ease-in-out top;
+}
+
+.two-lines-button.dark .btn-content {
+  border-color:#4e362d;
+  background:#4e362d;
+  color:#fff;
+}
+
+.two-lines-button.dark .btn-content:before {
+  background:#fff;
+  color:#4e362d;
+}
+
+.two-lines-button.disabled:hover .btn-content .btn-text {
+  -webkit-transform:translate(0,0);
+  -ms-transform:translate(0,0);
+  -o-transform:translate(0,0);
+  transform:translate(0,0);
+}
+
+.two-lines-button.disabled:hover .btn-content:before {
+  display:none;
+}

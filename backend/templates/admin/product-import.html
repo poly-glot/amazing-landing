@@ -1,0 +1,116 @@
+{{define "admin/product-import.html"}}{{template "layout.html" .}}{{end}}
+{{define "content"}}
+
+<nav class="c-breadcrumb" aria-label="Breadcrumb">
+  <a class="c-breadcrumb__link" href="/admin">Home</a>
+  <img class="c-breadcrumb__sep c-icon" src="/assets/icons/chevron-right.svg" alt="" aria-hidden="true">
+  <a class="c-breadcrumb__link" href="/admin/products">Products</a>
+  <img class="c-breadcrumb__sep c-icon" src="/assets/icons/chevron-right.svg" alt="" aria-hidden="true">
+  <span class="c-breadcrumb__current">Import CSV</span>
+</nav>
+
+<div class="c-page-header">
+  <div>
+    <h1 class="c-page-title">Import Products</h1>
+    <p class="c-page-subtitle">Upload a CSV file to bulk-import products. Existing products are not replaced — each row creates a new entry.</p>
+  </div>
+</div>
+
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:var(--sp-6);align-items:start">
+
+  <!-- Upload form -->
+  <div class="c-panel">
+    <div class="c-panel__header">
+      <h2 class="c-panel__title">Upload file</h2>
+    </div>
+    <div class="c-panel__body">
+      <form method="POST" action="/admin/products/import" enctype="multipart/form-data" class="c-form" style="max-inline-size:none">
+        <input type="hidden" name="_csrf" value="{{.CSRFToken}}">
+        <div class="c-form__field">
+          <label for="csv-file" class="c-form__label">CSV file</label>
+          <input type="file" id="csv-file" name="file" accept=".csv" required class="c-form__input" style="padding:var(--sp-2)">
+          <p class="c-form__hint">Accepted format: <code>.csv</code> with the columns listed opposite. Max recommended: 500 rows per import.</p>
+        </div>
+        <div class="c-form__actions">
+          <button type="submit" class="c-button c-button--primary">
+            <img class="c-icon c-icon--sm" src="/assets/icons/upload.svg" alt="" aria-hidden="true">
+            Import Products
+          </button>
+          <a href="/admin/products" class="c-button c-button--secondary">Cancel</a>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Format reference -->
+  <div style="display:flex;flex-direction:column;gap:var(--sp-4)">
+
+    <div class="c-panel">
+      <div class="c-panel__header">
+        <h2 class="c-panel__title">CSV format</h2>
+        <a href="/admin/products/example.csv" class="c-stat-card__link">Download example &rarr;</a>
+      </div>
+      <div class="c-panel__body" style="padding:0">
+        <table class="c-table">
+          <thead>
+            <tr>
+              <th>Column</th>
+              <th>Required</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>brand</code></td>
+              <td><span class="c-badge c-badge--success">Yes</span></td>
+              <td class="t-secondary">Bloom, Glow, Rise, or Silk</td>
+            </tr>
+            <tr>
+              <td><code>name</code></td>
+              <td><span class="c-badge c-badge--success">Yes</span></td>
+              <td class="t-secondary">Display name of the product</td>
+            </tr>
+            <tr>
+              <td><code>type</code></td>
+              <td><span class="c-badge c-badge--success">Yes</span></td>
+              <td class="t-secondary">e.g. Tone, Treat, Moisturise, Cleanse, Repair</td>
+            </tr>
+            <tr>
+              <td><code>image</code></td>
+              <td><span class="c-badge c-badge--success">Yes</span></td>
+              <td class="t-secondary">Image filename, e.g. <code>bloom_lotion.jpg</code></td>
+            </tr>
+            <tr>
+              <td><code>price</code></td>
+              <td><span class="c-badge c-badge--success">Yes</span></td>
+              <td class="t-secondary">Display price string, e.g. <code>£42</code></td>
+            </tr>
+            <tr>
+              <td><code>url</code></td>
+              <td><span class="c-badge c-badge--success">Yes</span></td>
+              <td class="t-secondary">Full product page URL</td>
+            </tr>
+            <tr>
+              <td><code>sort_order</code></td>
+              <td><span class="c-badge c-badge--neutral">No</span></td>
+              <td class="t-secondary">Integer display order within brand (defaults to 0)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="c-panel">
+      <div class="c-panel__header">
+        <h2 class="c-panel__title">Example rows</h2>
+      </div>
+      <div class="c-panel__body" style="padding:var(--sp-4)">
+        <div class="c-code" style="max-block-size:none;font-size:0.7rem">brand,name,type,image,price,url,sort_order
+Bloom,Bloom Lotion,Tone,bloom_lotion.jpg,£42,https://azadi-cosmetics.com/bloom-lotion,1
+Silk,Silk Cleansing Oil,Cleanse,silk_cleansing_oil.jpg,£17,https://azadi-cosmetics.com/silk-cleansing-oil,2</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+{{end}}
